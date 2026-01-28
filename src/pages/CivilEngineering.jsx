@@ -1,8 +1,12 @@
 import React from 'react';
 import SEO from '../components/SEO';
 import { HardHat, Activity, Box, Zap } from 'lucide-react';
+import { getProjectsByDomain } from '../data/portfolioData';
+import ProjectCard from '../components/ProjectCard';
 
 const CivilEngineering = () => {
+    const civilProjects = getProjectsByDomain('Civil');
+
     return (
         <div>
             <SEO
@@ -23,7 +27,7 @@ const CivilEngineering = () => {
                 </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2">
+            <div className="grid gap-6 md:grid-cols-2 mb-20">
                 <div className="p-8 rounded-2xl bg-zinc-900/30 border border-white/5 hover:bg-zinc-900/50 hover:border-blue-500/20 transition-all group">
                     <h2 className="text-2xl font-bold mb-3 flex items-center gap-2 group-hover:text-blue-400 transition-colors">
                         <Activity className="w-5 h-5" /> Structural Health Monitoring
@@ -49,6 +53,19 @@ const CivilEngineering = () => {
                     <p className="text-zinc-500 leading-relaxed">
                         Leading research developments in digital twins and automated reinforcement placement systems for Bouygues Travaux Publics.
                     </p>
+                </div>
+            </div>
+
+            {/* Filtered Projects Section */}
+            <div className="mb-20">
+                <div className="flex items-center gap-2 mb-8">
+                    <span className="flex h-2 w-2 rounded-full bg-blue-500"></span>
+                    <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">Selected Civil Projects</h2>
+                </div>
+                <div className="grid gap-6 md:grid-cols-2">
+                    {civilProjects.map((project, idx) => (
+                        <ProjectCard key={idx} project={project} />
+                    ))}
                 </div>
             </div>
         </div>
