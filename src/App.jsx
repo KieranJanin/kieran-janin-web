@@ -7,6 +7,7 @@ import CivilEngineering from './pages/CivilEngineering';
 import DataScience from './pages/DataScience';
 import DesignThinking from './pages/DesignThinking';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import Archive from './pages/Archive';
 import Projects from './pages/Projects';
 import About from './pages/About';
@@ -28,6 +29,7 @@ function App() {
             <Route path="data-science" element={<DataScience />} />
             <Route path="design-thinking" element={<DesignThinking />} />
             <Route path="blog" element={<Blog />} />
+            <Route path="blog/:slug" element={<BlogPost />} />
             <Route path="projects" element={<Projects />} />
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />

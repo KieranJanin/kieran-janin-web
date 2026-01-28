@@ -14,6 +14,7 @@ import {
     Cpu,
     Briefcase
 } from 'lucide-react';
+import BridgeImage from '../assets/bridge.png';
 
 const Home = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -73,12 +74,22 @@ const Home = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 selection:bg-white selection:text-black font-sans selection:bg-zinc-700">
+        <div className="relative min-h-screen bg-[#0a0a0a] text-zinc-100 selection:bg-white selection:text-black font-sans selection:bg-zinc-700">
             <SEO
                 title="Integrated Engineering Practitioner"
                 description="Kieran Janin: Integrated Engineering Practitioner specializing in Data-Driven Design and Civil Engineering Innovation."
                 keywords="Kieran Janin, Integrated Engineering Practitioner, Data-Driven Design"
             />
+
+            {/* Background Bridge Image */}
+            <div className="absolute top-0 left-0 w-full h-[80vh] overflow-hidden pointer-events-none z-0">
+                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/30 via-[#0a0a0a]/80 to-[#0a0a0a] z-10" />
+                <img
+                    src={BridgeImage}
+                    alt="Background Bridge"
+                    className="w-full h-full object-cover opacity-50"
+                />
+            </div>
 
             {/* Navigation - keeping local nav for specific styling, but linking internally */}
             <nav className={`fixed top-0 w-full z-50 transition-all duration-300 px-6 py-4 ${scrolled ? 'bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'}`}>
@@ -96,7 +107,7 @@ const Home = () => {
                 </div>
             </nav>
 
-            <main className="pt-32 pb-20 px-6">
+            <main className="relative z-10 pt-32 pb-20 px-6">
                 <div className="max-w-4xl mx-auto">
 
                     {/* Hero Section */}
