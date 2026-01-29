@@ -32,7 +32,7 @@ const Layout = () => {
 
             {/* Main Content */}
             <main className="flex-grow pt-32 pb-20 px-6">
-                <div className="max-w-[80%] mx-auto">
+                <div className="w-full max-w-7xl md:w-[90%] lg:w-[80%] mx-auto">
                     <Outlet />
                 </div>
             </main>

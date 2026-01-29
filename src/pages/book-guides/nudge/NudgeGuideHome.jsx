@@ -22,7 +22,7 @@ const ChapterCard = ({ number, title, subtitle, icon: Icon, link, highlight }) =
             <div className={`p-3 rounded-full border-2 border-black ${highlight ? 'bg-black text-white' : 'bg-transparent text-black group-hover:bg-black group-hover:text-white'} transition-colors`}>
                 <Icon size={24} />
             </div>
-            <span className="font-serif text-6xl font-bold opacity-10 text-black group-hover:opacity-20 transition-opacity">
+            <span className="font-serif text-4xl md:text-6xl font-bold opacity-10 text-black group-hover:opacity-20 transition-opacity">
                 {number}
             </span>
         </div>
@@ -52,10 +52,10 @@ export default function NudgeGuideHome() {
                             <Zap size={14} />
                             Guide Stratégique Paprec
                         </div>
-                        <h1 className="text-8xl md:text-9xl font-serif font-black tracking-tighter text-black mb-4 leading-none">
+                        <h1 className="text-5xl md:text-9xl font-serif font-black tracking-tighter text-black mb-4 leading-none">
                             Nudge
                         </h1>
-                        <p className="text-2xl font-serif font-bold text-black mb-8 max-w-lg italic">
+                        <p className="text-xl md:text-2xl font-serif font-bold text-black mb-8 max-w-lg italic">
                             Improving Decisions About Health, Wealth, and Happiness
                         </p>
                         <div className="bg-white border-l-8 border-black p-6 shadow-lg mb-8 transform rotate-1">

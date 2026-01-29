@@ -21,7 +21,7 @@ const NudgeLayout = () => {
             />
 
             {/* Sidebar Navigation */}
-            <aside className="w-full md:w-64 flex-shrink-0 border-r border-white/5 bg-zinc-900/10 md:h-screen md:sticky md:top-20 overflow-y-auto">
+            <aside className="w-full md:w-64 flex-shrink-0 border-b md:border-b-0 md:border-r border-white/5 bg-zinc-900/10 md:h-screen md:sticky md:top-20 overflow-y-auto">
                 <div className="p-6">
                     <NavLink to="/books" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-white mb-8 transition-colors">
                         <ChevronLeft className="w-4 h-4" /> Back to Library
@@ -54,8 +54,10 @@ const NudgeLayout = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-grow p-6 md:p-12 lg:p-16 max-w-[80%]">
-                <Outlet />
+            <main className="flex-grow p-6 md:p-12 lg:p-16 w-full">
+                <div className="max-w-4xl mx-auto">
+                    <Outlet />
+                </div>
             </main>
         </div>
     );

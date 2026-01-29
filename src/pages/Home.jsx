@@ -110,7 +110,7 @@ const Home = () => {
             </nav>
 
             <main className="relative z-10 pt-32 pb-20 px-6">
-                <div className="max-w-[80%] mx-auto">
+                <div className="w-full max-w-7xl md:w-[90%] lg:w-[80%] mx-auto">
 
                     {/* Hero Section */}
                     <section className="mb-32">
