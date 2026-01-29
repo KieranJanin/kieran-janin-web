@@ -8,7 +8,7 @@ const Contact = () => {
             <SEO
                 title="Contact"
                 description="Get in touch for collaborations, consulting, or general inquiries."
-                keywords="Contact Kieran Janin, Engineering Consulting, Collaboration"
+                keywords="Contact Kieran Janin, Engineering Consulting, Collaboration, Paris, Remote Work"
             />
 
             <div className="mb-12 border-b border-white/5 pb-8">
@@ -26,21 +26,21 @@ const Contact = () => {
                     </p>
 
                     <div className="space-y-6">
-                        <a href="mailto:hello@example.com" className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors group">
+                        <a href="mailto:kieran.janin@gmail.com" className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors group">
                             <div className="p-3 bg-zinc-900 border border-white/5 rounded-xl group-hover:bg-zinc-800 transition-colors">
                                 <Mail className="w-5 h-5" />
                             </div>
-                            <span className="font-medium">hello@example.com</span>
+                            <span className="font-medium">kieran.janin@gmail.com</span>
                         </a>
 
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors group">
+                        <a href="https://www.linkedin.com/in/kieranjanin/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors group">
                             <div className="p-3 bg-zinc-900 border border-white/5 rounded-xl group-hover:bg-zinc-800 transition-colors">
                                 <Linkedin className="w-5 h-5" />
                             </div>
                             <span className="font-medium">LinkedIn Profile</span>
                         </a>
 
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors group">
+                        <a href="https://github.com/KieranJanin" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4 text-zinc-400 hover:text-white transition-colors group">
                             <div className="p-3 bg-zinc-900 border border-white/5 rounded-xl group-hover:bg-zinc-800 transition-colors">
                                 <Github className="w-5 h-5" />
                             </div>

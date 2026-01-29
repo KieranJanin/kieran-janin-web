@@ -1,0 +1,64 @@
+import React from 'react';
+import { NavLink, Outlet } from 'react-router-dom';
+import SEO from '../../../components/SEO';
+import { BookOpen, ChevronLeft } from 'lucide-react';
+
+const NudgeLayout = () => {
+    const chapters = [
+        { path: ".", title: "Introduction", label: "Guide Home" },
+        { path: "chapter-1", title: "Chapter 1: Biases and Blunders", label: "Chapter 1" },
+        { path: "chapter-2", title: "Chapter 2: Resisting Temptation", label: "Chapter 2" },
+        { path: "chapter-3", title: "Chapter 3: Following the Herd", label: "Chapter 3" },
+        { path: "chapter-4", title: "Chapter 4: When do we need a Nudge?", label: "Chapter 4" },
+        { path: "chapter-5", title: "Chapter 5: Choice Architecture", label: "Chapter 5" },
+    ];
+
+    return (
+        <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 flex flex-col md:flex-row">
+            <SEO
+                title="Nudge: A Book Guide"
+                description="Detailed notes and chapter summaries for Nudge by Thaler & Sunstein."
+            />
+
+            {/* Sidebar Navigation */}
+            <aside className="w-full md:w-64 flex-shrink-0 border-r border-white/5 bg-zinc-900/10 md:h-screen md:sticky md:top-20 overflow-y-auto">
+                <div className="p-6">
+                    <NavLink to="/books" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 hover:text-white mb-8 transition-colors">
+                        <ChevronLeft className="w-4 h-4" /> Back to Library
+                    </NavLink>
+
+                    <h2 className="text-xl font-bold mb-6 flex items-center gap-2">
+                        <BookOpen className="w-5 h-5 text-emerald-500" /> Nudge
+                    </h2>
+
+                    <nav className="flex flex-col gap-1">
+                        {chapters.map((chapter) => (
+                            <NavLink
+                                key={chapter.path}
+                                to={chapter.path}
+                                end={chapter.path === "."}
+                                className={({ isActive }) => `
+                                    px-4 py-3 text-sm font-medium rounded-lg transition-all
+                                    ${isActive
+                                        ? 'bg-zinc-800 text-white border border-white/5'
+                                        : 'text-zinc-400 hover:bg-zinc-900 hover:text-zinc-200'
+                                    }
+                                `}
+                            >
+                                <div className="font-bold">{chapter.label}</div>
+                                <div className="text-xs font-normal opacity-70 truncate">{chapter.title}</div>
+                            </NavLink>
+                        ))}
+                    </nav>
+                </div>
+            </aside>
+
+            {/* Main Content Area */}
+            <main className="flex-grow p-6 md:p-12 lg:p-16 max-w-[80%]">
+                <Outlet />
+            </main>
+        </div>
+    );
+};
+
+export default NudgeLayout;

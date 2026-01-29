@@ -12,7 +12,17 @@ import Archive from './pages/Archive';
 import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
+import Books from './pages/Books';
 import NotFound from './pages/NotFound';
+
+// Nudge Guide Imports
+import NudgeLayout from './pages/book-guides/nudge/NudgeLayout';
+import NudgeGuideHome from './pages/book-guides/nudge/NudgeGuideHome';
+import Chapter1 from './pages/book-guides/nudge/Chapter1';
+import Chapter2 from './pages/book-guides/nudge/Chapter2';
+import Chapter3 from './pages/book-guides/nudge/Chapter3';
+import Chapter4 from './pages/book-guides/nudge/Chapter4';
+import Chapter5 from './pages/book-guides/nudge/Chapter5';
 
 function App() {
   return (
@@ -31,6 +41,18 @@ function App() {
             <Route path="blog" element={<Blog />} />
             <Route path="blog/:slug" element={<BlogPost />} />
             <Route path="projects" element={<Projects />} />
+            <Route path="books" element={<Books />} />
+
+            {/* Nudge Book Guide Routes */}
+            <Route path="books/nudge" element={<NudgeLayout />}>
+              <Route index element={<NudgeGuideHome />} />
+              <Route path="chapter-1" element={<Chapter1 />} />
+              <Route path="chapter-2" element={<Chapter2 />} />
+              <Route path="chapter-3" element={<Chapter3 />} />
+              <Route path="chapter-4" element={<Chapter4 />} />
+              <Route path="chapter-5" element={<Chapter5 />} />
+            </Route>
+
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
             {/* Catch all for 404 */}

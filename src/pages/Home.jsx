@@ -14,7 +14,7 @@ import {
     Cpu,
     Briefcase
 } from 'lucide-react';
-import BridgeImage from '../assets/bridge.png';
+import BridgeImage from '../assets/bridge_centered.png';
 
 const Home = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -87,7 +87,7 @@ const Home = () => {
                 <img
                     src={BridgeImage}
                     alt="Background Bridge"
-                    className="w-full h-full object-cover opacity-50"
+                    className="w-full h-full object-cover opacity-80"
                 />
             </div>
 
@@ -100,15 +100,17 @@ const Home = () => {
                         <Link to="/data-science" className="hover:text-white transition-colors hidden md:block">Data</Link>
                         <Link to="/design-thinking" className="hover:text-white transition-colors hidden md:block">Design</Link>
                         <Link to="/projects" className="hover:text-white transition-colors">Projects</Link>
+                        <Link to="/books" className="hover:text-white transition-colors">Books</Link>
                         <Link to="/blog" className="hover:text-white transition-colors">Blog</Link>
                         <Link to="/archive" className="hover:text-white transition-colors">Archive</Link>
                         <Link to="/about" className="hover:text-white transition-colors">About</Link>
+                        <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
                     </nav>
                 </div>
             </nav>
 
             <main className="relative z-10 pt-32 pb-20 px-6">
-                <div className="max-w-4xl mx-auto">
+                <div className="max-w-[80%] mx-auto">
 
                     {/* Hero Section */}
                     <section className="mb-32">
