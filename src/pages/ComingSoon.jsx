@@ -23,9 +23,6 @@ const ComingSoon = () => {
 
             <main className="relative z-10 max-w-2xl mx-auto animate-in fade-in zoom-in duration-1000">
                 <div className="mb-8">
-                    <span className="inline-block px-3 py-1 rounded-full bg-zinc-800/50 border border-white/10 text-xs font-bold uppercase tracking-[0.2em] text-zinc-400 mb-6 backdrop-blur-sm">
-                        Status: Deployment
-                    </span>
                     <h1 className="text-5xl md:text-7xl font-bold tracking-tighter mb-4 text-white">
                         Kieran Janin
                     </h1>
@@ -37,8 +34,8 @@ const ComingSoon = () => {
                 <div className="h-px w-24 bg-gradient-to-r from-transparent via-white/20 to-transparent mx-auto mb-8"></div>
 
                 <p className="text-zinc-500 mb-12 leading-relaxed">
-                    The full portfolio is currently compiling. <br />
-                    Check back shortly for the final release.
+                    My full portfolio is currently in the works. <br />
+                    Please check back soon.
                 </p>
 
                 <div className="flex items-center justify-center gap-6">
