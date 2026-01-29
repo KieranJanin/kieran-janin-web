@@ -58,9 +58,10 @@ function App() {
 
             <Route path="about" element={<About />} />
             <Route path="contact" element={<Contact />} />
-            {/* Catch all for 404 */}
-            <Route path="*" element={<NotFound />} />
           </Route>
+
+          {/* Catch all for 404 - No Layout/Menu */}
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
