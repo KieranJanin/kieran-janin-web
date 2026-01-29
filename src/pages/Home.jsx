@@ -123,7 +123,7 @@ const Home = () => {
                 </div>
 
                 {/* Mobile Menu Overlay */}
-                <div className={`fixed inset-0 bg-[#0a0a0a] z-40 flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+                <div className={`fixed inset-0 bg-black z-[100] flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
                     <nav className="flex flex-col gap-8 text-center">
                         <Link to="/civil-engineering" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Civil</Link>
                         <Link to="/data-science" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Data</Link>
@@ -269,7 +269,7 @@ const Home = () => {
             </main>
 
             <footer className="px-6 py-12 text-center text-zinc-600 text-xs tracking-widest uppercase">
-                © {new Date().getFullYear()} Kieran Janin. All Rights Reserved.
+                © {new Date().getFullYear()} Kieran Janin. Integrated Engineering Practitioner.
             </footer>
         </div>
     );

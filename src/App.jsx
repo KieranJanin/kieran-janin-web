@@ -24,13 +24,16 @@ import Chapter3 from './pages/book-guides/nudge/Chapter3';
 import Chapter4 from './pages/book-guides/nudge/Chapter4';
 import Chapter5 from './pages/book-guides/nudge/Chapter5';
 
+import ComingSoon from './pages/ComingSoon';
+
 function App() {
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
           {/* Immersive Pages (Full Screen, Custom Layouts) */}
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<ComingSoon />} />
+          <Route path="/hidden-home" element={<Home />} />
           <Route path="/archive" element={<Archive />} />
 
           {/* Standard Pages (Shared Header/Layout) */}

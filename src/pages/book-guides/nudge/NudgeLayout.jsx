@@ -82,7 +82,7 @@ const NudgeLayout = () => {
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-grow p-6 md:p-12 lg:p-16 w-full">
+            <main className="flex-grow p-0 md:p-12 lg:p-16 w-full">
                 <div className="max-w-4xl mx-auto">
                     <Outlet />
                 </div>
