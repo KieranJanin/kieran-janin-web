@@ -26,13 +26,23 @@ import Chapter5 from './pages/book-guides/nudge/Chapter5';
 
 import ComingSoon from './pages/ComingSoon';
 
+
 function App() {
+  // Check Mode: 'live' (Full Site) or 'coming_soon' (Placeholder)
+  // Default to 'live' for safety if undefined, but production will force 'coming_soon'
+  const appMode = import.meta.env.VITE_APP_MODE || 'live';
+
   return (
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          {/* Immersive Pages (Full Screen, Custom Layouts) */}
-          <Route path="/" element={<ComingSoon />} />
+          {/* Root Route Logic */}
+          <Route
+            path="/"
+            element={appMode === 'live' ? <Home /> : <ComingSoon />}
+          />
+
+          {/* Secret Access to Home in Coming Soon Mode */}
           <Route path="/hidden-home" element={<Home />} />
           <Route path="/archive" element={<Archive />} />
 
