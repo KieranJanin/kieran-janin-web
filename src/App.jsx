@@ -42,36 +42,53 @@ function App() {
             element={appMode === 'live' ? <Home /> : <ComingSoon />}
           />
 
-          {/* Secret Access to Home in Coming Soon Mode */}
-          <Route path="/hidden-home" element={<Home />} />
-          <Route path="/archive" element={<Archive />} />
+          {/* 
+            LIVE MODE ONLY ROUTES
+            These are completely hidden when VITE_APP_MODE is not 'live'.
+          */}
+          {appMode === 'live' && (
+            <>
+              {/* Secret Access to Home in Coming Soon Mode (only if specifically enabled or in live mode) */}
+              <Route path="/hidden-home" element={<Home />} />
+              <Route path="/archive" element={<Archive />} />
 
-          {/* Standard Pages (Shared Header/Layout) */}
-          <Route element={<Layout />}>
-            <Route path="civil-engineering" element={<CivilEngineering />} />
-            <Route path="data-science" element={<DataScience />} />
-            <Route path="design-thinking" element={<DesignThinking />} />
-            <Route path="blog" element={<Blog />} />
-            <Route path="blog/:slug" element={<BlogPost />} />
-            <Route path="projects" element={<Projects />} />
-            <Route path="books" element={<Books />} />
+              {/* Standard Pages (Shared Header/Layout) */}
+              <Route element={<Layout />}>
+                <Route path="civil-engineering" element={<CivilEngineering />} />
+                <Route path="data-science" element={<DataScience />} />
+                <Route path="design-thinking" element={<DesignThinking />} />
+                <Route path="blog" element={<Blog />} />
+                <Route path="blog/:slug" element={<BlogPost />} />
+                <Route path="projects" element={<Projects />} />
+                <Route path="books" element={<Books />} />
 
-            {/* Nudge Book Guide Routes */}
-            <Route path="books/nudge" element={<NudgeLayout />}>
-              <Route index element={<NudgeGuideHome />} />
-              <Route path="chapter-1" element={<Chapter1 />} />
-              <Route path="chapter-2" element={<Chapter2 />} />
-              <Route path="chapter-3" element={<Chapter3 />} />
-              <Route path="chapter-4" element={<Chapter4 />} />
-              <Route path="chapter-5" element={<Chapter5 />} />
-            </Route>
+                {/* Nudge Book Guide Routes */}
+                <Route path="books/nudge" element={<NudgeLayout />}>
+                  <Route index element={<NudgeGuideHome />} />
+                  <Route path="chapter-1" element={<Chapter1 />} />
+                  <Route path="chapter-2" element={<Chapter2 />} />
+                  <Route path="chapter-3" element={<Chapter3 />} />
+                  <Route path="chapter-4" element={<Chapter4 />} />
+                  <Route path="chapter-5" element={<Chapter5 />} />
+                </Route>
 
-            <Route path="about" element={<About />} />
-            <Route path="contact" element={<Contact />} />
-          </Route>
+                <Route path="about" element={<About />} />
+                <Route path="contact" element={<Contact />} />
 
-          {/* Catch all for 404 - No Layout/Menu */}
-          <Route path="*" element={<NotFound />} />
+                {/* 404 for valid layout paths that don't match */}
+                <Route path="*" element={<NotFound />} />
+              </Route>
+            </>
+          )}
+
+          {/* 
+            COMING SOON MODE FALLBACK 
+            If not live, catch ALL other paths and show NotFound (or redirect to /)
+          */}
+          {appMode !== 'live' && (
+            <Route path="*" element={<NotFound />} />
+          )}
+
         </Routes>
       </BrowserRouter>
     </HelmetProvider>
