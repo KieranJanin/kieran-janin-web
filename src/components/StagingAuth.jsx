@@ -18,8 +18,10 @@ const StagingAuth = ({ children }) => {
 
     const handleLogin = (e) => {
         e.preventDefault();
-        // Simple hardcoded password for MVP
-        if (password === 'fish_monster_foot') {
+        // Use environment variable for password
+        const correctPassword = import.meta.env.VITE_STAGING_PASSWORD;
+
+        if (password === correctPassword) {
             localStorage.setItem('staging_auth', 'true');
             setIsAuthenticated(true);
         } else {

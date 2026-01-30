@@ -5,6 +5,8 @@ steps:
       - 'build'
       - '--build-arg'
       - 'VITE_APP_MODE=live'
+      - '--build-arg'
+      - 'VITE_STAGING_PASSWORD=$_VITE_STAGING_PASSWORD'
       - '-t'
       - 'gcr.io/$PROJECT_ID/kieran-janin-web-staging:$COMMIT_SHA'
       - '.'

@@ -9,6 +9,10 @@ COPY . .
 ARG VITE_APP_MODE=live
 ENV VITE_APP_MODE=$VITE_APP_MODE
 
+# Accept build argument for staging password
+ARG VITE_STAGING_PASSWORD
+ENV VITE_STAGING_PASSWORD=$VITE_STAGING_PASSWORD
+
 RUN npm run build
 
 # Production stage
