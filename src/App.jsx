@@ -26,6 +26,8 @@ import Chapter5 from './pages/book-guides/nudge/Chapter5';
 
 import ComingSoon from './pages/ComingSoon';
 
+import StagingAuth from './components/StagingAuth';
+
 
 function App() {
   // Check Mode: 'live' (Full Site) or 'coming_soon' (Placeholder)
@@ -36,18 +38,12 @@ function App() {
     <HelmetProvider>
       <BrowserRouter>
         <Routes>
-          {/* Root Route Logic */}
-          <Route
-            path="/"
-            element={appMode === 'live' ? <Home /> : <ComingSoon />}
-          />
-
           {/* 
             LIVE MODE ONLY ROUTES
             These are completely hidden when VITE_APP_MODE is not 'live'.
           */}
           {appMode === 'live' && (
-            <>
+            <Route element={<StagingAuth />}>
               {/* Secret Access to Home in Coming Soon Mode (only if specifically enabled or in live mode) */}
               <Route path="/hidden-home" element={<Home />} />
               <Route path="/archive" element={<Archive />} />
@@ -78,7 +74,7 @@ function App() {
                 {/* 404 for valid layout paths that don't match */}
                 <Route path="*" element={<NotFound />} />
               </Route>
-            </>
+            </Route>
           )}
 
           {/* 
@@ -88,6 +84,17 @@ function App() {
           {appMode !== 'live' && (
             <Route path="*" element={<NotFound />} />
           )}
+
+          {/* Root Route Logic - Independent of Staging Auth to show Coming Soon on Prod */}
+          <Route
+            path="/"
+            element={appMode === 'live' ? (
+              // Force Staging Auth check even on Root
+              <StagingAuth>
+                <Home />
+              </StagingAuth>
+            ) : <ComingSoon />}
+          />
 
         </Routes>
       </BrowserRouter>
