@@ -19,7 +19,7 @@ const StagingAuth = ({ children }) => {
     const handleLogin = (e) => {
         e.preventDefault();
         // Simple hardcoded password for MVP
-        if (password === 'staging2026') {
+        if (password === 'fish_monster_foot') {
             localStorage.setItem('staging_auth', 'true');
             setIsAuthenticated(true);
         } else {
