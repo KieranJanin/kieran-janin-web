@@ -2,8 +2,13 @@
 FROM node:20-alpine AS build
 WORKDIR /app
 COPY package*.json ./
-RUN npm install --legacy-peer-deps
+RUN npm install
 COPY . .
+
+# Accept build argument for app mode (default to live if not provided)
+ARG VITE_APP_MODE=live
+ENV VITE_APP_MODE=$VITE_APP_MODE
+
 RUN npm run build
 
 # Production stage
