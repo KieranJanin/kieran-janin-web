@@ -48,7 +48,7 @@ const Layout = () => {
 
                     {/* Mobile Menu Button */}
                     <button
-                        className="md:hidden text-zinc-100 z-50 relative p-2"
+                        className="md:hidden text-zinc-100 z-[101] relative p-2"
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
                     >
                         {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -56,13 +56,22 @@ const Layout = () => {
                 </div>
 
                 {/* Mobile Menu Overlay */}
-                <div className={`fixed inset-0 bg-black z-[100] flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+                <div className={`fixed inset-0 bg-black/95 backdrop-blur-md z-[100] flex flex-col items-center justify-center transition-all duration-500 ease-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
+                    {/* Extra Close Button for redundancy/clarity */}
+                    <button
+                        className="absolute top-6 right-6 text-zinc-400 hover:text-white transition-colors"
+                        onClick={() => setIsMenuOpen(false)}
+                    >
+                        <X size={32} />
+                    </button>
+
                     <nav className="flex flex-col gap-8 text-center">
                         {navLinks.map(link => (
                             <Link
                                 key={link.path}
                                 to={link.path}
-                                className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors"
+                                onClick={() => setIsMenuOpen(false)}
+                                className="text-3xl font-bold tracking-tight text-white/90 hover:text-white transition-all hover:scale-105"
                             >
                                 {link.label}
                             </Link>
