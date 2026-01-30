@@ -28,7 +28,7 @@ const Section = ({ title, icon: Icon, children, auditQuestion }) => {
 
             {isOpen && (
                 <div className="bg-white border-x-4 border-b-4 border-black rounded-b-xl p-8 -mt-2 pt-6 shadow-xl animate-in fade-in slide-in-from-top-2 mx-2">
-                    <div className="prose max-w-none text-black font-medium text-lg leading-relaxed mb-8">
+                    <div className="prose max-w-none text-black font-medium text-sm md:text-lg leading-relaxed mb-8">
                         {children}
                     </div>
 
@@ -60,10 +60,10 @@ export default function Chapter5() {
                 <div className="inline-block border-2 border-black px-4 py-1 rounded-full mb-6 bg-white">
                     <h3 className="text-black text-sm font-black tracking-widest uppercase">CHAPITRE 5</h3>
                 </div>
-                <h1 className="text-5xl md:text-8xl font-serif font-black tracking-tighter text-black mb-4 leading-none">
+                <h1 className="text-4xl md:text-8xl font-serif font-black tracking-tighter text-black mb-4 leading-none">
                     Architecture<br />du Choix
                 </h1>
-                <p className="mt-6 text-xl font-bold text-black max-w-2xl mx-auto leading-relaxed border-b-4 border-black pb-8">
+                <p className="mt-6 text-base md:text-xl font-bold text-black max-w-2xl mx-auto leading-relaxed border-b-4 border-black pb-8">
                     Le framework NUDGES. Le manuel pratique pour concevoir des environnements intelligents.
                 </p>
             </header>
@@ -72,8 +72,8 @@ export default function Chapter5() {
 
                 {/* Intro Card */}
                 <div className="bg-white p-8 rounded-xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-12">
-                    <h3 className="text-2xl font-black text-black mb-2">La Parabole de la Porte</h3>
-                    <p className="text-lg text-black mb-6">
+                    <h3 className="text-xl md:text-2xl font-black text-black mb-2">La Parabole de la Porte</h3>
+                    <p className="text-sm md:text-lg text-black mb-6">
                         Une porte avec de grandes poignées verticales crie "TIREZ". Si elle s'ouvre en poussant, c'est une <strong>mauvaise architecture</strong>.
                     </p>
                     <div className="bg-gray-100 border-2 border-black p-4 rounded text-center font-bold">

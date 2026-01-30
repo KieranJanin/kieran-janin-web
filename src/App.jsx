@@ -50,6 +50,7 @@ function App() {
 
               {/* Standard Pages (Shared Header/Layout) */}
               <Route element={<Layout />}>
+                <Route path="/" element={<Home />} />
                 <Route path="civil-engineering" element={<CivilEngineering />} />
                 <Route path="data-science" element={<DataScience />} />
                 <Route path="design-thinking" element={<DesignThinking />} />
@@ -82,19 +83,13 @@ function App() {
             If not live, catch ALL other paths and show NotFound (or redirect to /)
           */}
           {appMode !== 'live' && (
-            <Route path="*" element={<NotFound />} />
+            <>
+              <Route path="/" element={<ComingSoon />} />
+              <Route path="*" element={<NotFound />} />
+            </>
           )}
 
-          {/* Root Route Logic - Independent of Staging Auth to show Coming Soon on Prod */}
-          <Route
-            path="/"
-            element={appMode === 'live' ? (
-              // Force Staging Auth check even on Root
-              <StagingAuth>
-                <Home />
-              </StagingAuth>
-            ) : <ComingSoon />}
-          />
+
 
         </Routes>
       </BrowserRouter>

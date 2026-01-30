@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import {
@@ -11,22 +11,12 @@ import {
     Mail,
     ExternalLink,
     BookOpen,
-    Menu,
-    X,
     Cpu,
     Briefcase
 } from 'lucide-react';
 import BridgeImage from '../assets/bridge_centered.png';
 
 const Home = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
 
     const domains = [
         {
@@ -93,50 +83,6 @@ const Home = () => {
                     className="w-full h-full object-cover opacity-80"
                 />
             </div>
-
-            {/* Navigation - keeping local nav for specific styling, but linking internally */}
-            {/* Navigation - keeping local nav for specific styling, but linking internally */}
-            <nav className={`fixed top-0 w-full z-50 transition-all duration-300 px-6 py-4 ${scrolled || isMenuOpen ? 'bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'}`}>
-                <div className="max-w-6xl mx-auto flex justify-between items-center">
-                    <span className="font-bold tracking-tighter text-xl z-50 relative">KJ.</span>
-
-                    {/* Desktop Nav */}
-                    <nav className="hidden md:flex gap-6 text-sm font-medium text-zinc-400">
-                        <Link to="/civil-engineering" className="hover:text-white transition-colors">Civil</Link>
-                        <Link to="/data-science" className="hover:text-white transition-colors">Data</Link>
-                        <Link to="/design-thinking" className="hover:text-white transition-colors">Design</Link>
-                        <Link to="/projects" className="hover:text-white transition-colors">Projects</Link>
-                        <Link to="/books" className="hover:text-white transition-colors">Books</Link>
-                        <Link to="/blog" className="hover:text-white transition-colors">Blog</Link>
-                        <Link to="/archive" className="hover:text-white transition-colors">Archive</Link>
-                        <Link to="/about" className="hover:text-white transition-colors">About</Link>
-                        <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
-                    </nav>
-
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden text-zinc-100 z-50 relative p-2"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
-                </div>
-
-                {/* Mobile Menu Overlay */}
-                <div className={`fixed inset-0 bg-black z-[100] flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-                    <nav className="flex flex-col gap-8 text-center">
-                        <Link to="/civil-engineering" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Civil</Link>
-                        <Link to="/data-science" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Data</Link>
-                        <Link to="/design-thinking" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Design</Link>
-                        <Link to="/projects" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Projects</Link>
-                        <Link to="/books" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Books</Link>
-                        <Link to="/blog" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Blog</Link>
-                        <Link to="/archive" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Archive</Link>
-                        <Link to="/about" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">About</Link>
-                        <Link to="/contact" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Contact</Link>
-                    </nav>
-                </div>
-            </nav>
 
             <main className="relative z-10 pt-32 pb-20 px-6">
                 <div className="w-full max-w-7xl md:w-[90%] lg:w-[80%] mx-auto">
