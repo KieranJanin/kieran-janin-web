@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Lock } from 'lucide-react';
 
-const StagingAuth = () => {
+const StagingAuth = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [password, setPassword] = useState('');
     const [error, setError] = useState(false);
@@ -30,7 +30,7 @@ const StagingAuth = () => {
     if (loading) return null; // Prevent flash
 
     if (isAuthenticated) {
-        return <Outlet />;
+        return children ? children : <Outlet />;
     }
 
     return (
