@@ -5,6 +5,13 @@ import { ExternalLink, Github } from 'lucide-react';
 const Projects = () => {
     const projects = [
         {
+            title: "Design Fiction Facilitator",
+            description: "Interactive workshop tool for generating and exploring future scenarios.",
+            stack: ["React", "Vite", "Tailwind"],
+            link: "https://github.com",
+            demo: "https://design-fiction.kieranjanin.com"
+        },
+        {
             title: "Project Alpha",
             description: "A full-stack application leveraging AI for structural defect detection.",
             stack: ["React", "Python", "TensorFlow"],

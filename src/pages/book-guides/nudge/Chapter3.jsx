@@ -147,7 +147,7 @@ export default function Chapter3() {
                 <Section
                     title="Amorçage (Priming)"
                     icon={MessageCircle}
-                    auditQuestion="Au moment de l'achat, posez la question : 'Avez-vous prévu où déposer cette bouteille ?'. Le simple fait de poser la question augmente l'action."
+                    auditQuestion="Au moment de l'achat, posez la question : 'Avez-vous prévu où déposer cet objet ?'. Le simple fait de poser la question augmente l'action."
                 >
                     <p className="mb-4">
                         <strong>Effet de Simple Mesure :</strong> Demander aux gens s'ils comptent voter augmente le vote de 25%.
@@ -161,7 +161,7 @@ export default function Chapter3() {
                 <Section
                     title="Don't Mess with Texas"
                     icon={Shield}
-                    auditQuestion="Paprec est une autorité 'ennuyeuse'. Vous avez besoin de figures locales ou 'cool'. Qui est le 'Willie Nelson' de vos utilisateurs ?"
+                    auditQuestion="L'institution est souvent une autorité 'ennuyeuse'. Vous avez besoin de figures locales ou 'cool'. Qui est le 'Willie Nelson' de vos utilisateurs ?"
                 >
                     <p className="mb-4">
                         Pour empêcher les jeunes hommes de jeter des déchets, le Texas a utilisé des joueurs de football écrasant des canettes.

@@ -110,18 +110,20 @@ const Home = () => {
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                                 <div>
                                     <h3 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                                        Project Alpha <Cpu className="w-5 h-5 text-zinc-400" />
+                                        Design Fiction Facilitator <Lightbulb className="w-5 h-5 text-zinc-400" />
                                     </h3>
                                     <p className="text-zinc-400 max-w-md">
-                                        The application I just deployed. It solves X by leveraging Y, built during a single-night sprint.
+                                        A digital companion for facilitating design fiction workshops, helping teams generate and explore future scenarios.
                                     </p>
                                 </div>
-                                <Link
-                                    to="/projects"
+                                <a
+                                    href="https://design-fiction.kieranjanin.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm hover:bg-zinc-200 transition-all active:scale-95"
                                 >
-                                    View Live App <ExternalLink className="w-4 h-4" />
-                                </Link>
+                                    Launch Tool <ExternalLink className="w-4 h-4" />
+                                </a>
                             </div>
                         </div>
                     </section>

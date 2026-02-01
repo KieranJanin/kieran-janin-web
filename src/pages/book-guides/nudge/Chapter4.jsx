@@ -90,14 +90,14 @@ export default function Chapter4() {
                 <Section
                     title="Bénéfices Maintenant, Coûts Plus Tard"
                     icon={TrendingDown}
-                    auditQuestion="Le protoxyde est un 'Bien de Tentation' : Plaisir immédiat, coûts (explosion) invisibles. Vous DEVEZ créer un bénéfice immédiat (récompense) pour compenser l'effort du tri."
+                    auditQuestion="Les 'Biens de Tentation' offrent un plaisir immédiat mais des coûts invisibles (santé, pollution, argent). Vous DEVEZ créer un bénéfice immédiat (récompense) pour compenser l'effort de la bonne décision."
                 >
                     <p className="mb-4">
                         Problèmes de maîtrise de soi (Self-control).
                     </p>
                     <ul className="list-disc pl-5 space-y-2 mb-4 font-medium">
                         <li><strong>Biens d'investissement :</strong> Coûts immédiats, bénéfices tardifs (Sport). On en fait trop peu.</li>
-                        <li><strong>Biens de tentation :</strong> Plaisir immédiat, coûts tardifs (Donuts, Gaz). On en abuse.</li>
+                        <li><strong>Biens de tentation :</strong> Plaisir immédiat, coûts tardifs (Donuts). On en abuse.</li>
                     </ul>
                 </Section>
 
@@ -105,7 +105,7 @@ export default function Chapter4() {
                 <Section
                     title="Degré de Difficulté"
                     icon={AlertOctagon}
-                    auditQuestion="Vos utilisateurs ne comprennent pas la physique des explosions. Simplifiez le choix : 'Bouteille ici = Bien'. Ne faites pas de pédagogie complexe."
+                    auditQuestion="Vos utilisateurs ne comprennent pas toujours les conséquences complexes. Simplifiez le choix : 'Ceci ici = Bien'. Ne faites pas de pédagogie complexe inutile."
                 >
                     <p className="mb-4">
                         Tout le monde sait lacer ses chaussures. Peu de gens savent choisir une hypothèque.
@@ -119,7 +119,7 @@ export default function Chapter4() {
                 <Section
                     title="Fréquence & Rareté"
                     icon={Repeat}
-                    auditQuestion="Jeter une bouteille correctement n'est pas une habitude fréquente pour eux. Si la fréquence est faible, le nudge doit être puissant et explicite à chaque fois."
+                    auditQuestion="Le bon geste n'est pas toujours une habitude fréquente. Si la fréquence est faible, le nudge doit être puissant et explicite à chaque fois."
                 >
                     <p className="mb-4">
                         La pratique rend parfait. Mais on ne choisit sa carrière ou sa maison que rarement.
@@ -133,7 +133,7 @@ export default function Chapter4() {
                 <Section
                     title="Le Feedback"
                     icon={Activity}
-                    auditQuestion="Point critique. Jeter dans la poubelle normale ne donne aucun feedback négatif immédiat. Votre borne DOIT fournir un feedback sensoriel (bruit, lumière) pour valider le bon geste."
+                    auditQuestion="Point critique. Une mauvaise décision ne donne souvent aucun feedback négatif immédiat. Votre système DOIT fournir un feedback sensoriel (bruit, lumière) pour valider le bon geste."
                 >
                     <p className="mb-4">
                         L'apprentissage nécessite un retour immédiat. Putter dans le noir ne permet pas de progresser au golf.

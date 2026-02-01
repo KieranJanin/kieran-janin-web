@@ -90,7 +90,7 @@ export default function Chapter1() {
                 <Section
                     title="Les Deux Systèmes"
                     icon={Brain}
-                    auditQuestion="Votre prototype actuel suppose probablement que les utilisateurs sont des 'Spocks' soucieux de l'environnement. Les utilisateurs de protoxyde sont des 'Homer Simpson' au moment de la consommation. Votre processus de retour nécessite-t-il une réflexion consciente ? Si oui, il échouera."
+                    auditQuestion="Votre prototype actuel suppose probablement que les utilisateurs sont des 'Spocks' rationnels. Les vrais utilisateurs sont des 'Homer Simpson' au moment de l'action. Votre processus nécessite-t-il une réflexion consciente ? Si oui, il échouera."
                 >
                     <p className="mb-4">
                         Le cerveau fonctionne selon deux modes. La plupart des échecs politiques surviennent parce que nous concevons pour le mauvais système.
@@ -164,7 +164,7 @@ export default function Chapter1() {
                 <Section
                     title="Optimisme & Excès de Confiance"
                     icon={TrendingUp}
-                    auditQuestion="Vos utilisateurs croient : 'Je ne serai pas celui dont la bouteille explosera'. Cet optimisme irréaliste bloque la prévention."
+                    auditQuestion="Vos utilisateurs croient : 'Cela n'arrivera qu'aux autres'. Cet optimisme irréaliste bloque la prévention."
                 >
                     <p className="mb-4 text-2xl font-black">
                         90% des conducteurs pensent conduire mieux que la moyenne.

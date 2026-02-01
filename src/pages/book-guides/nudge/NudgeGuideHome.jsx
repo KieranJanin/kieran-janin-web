@@ -50,7 +50,7 @@ export default function NudgeGuideHome() {
                     <div>
                         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black text-[#FFD500] text-xs font-black tracking-widest uppercase mb-6 shadow-md transform -rotate-2">
                             <Zap size={14} />
-                            Guide Stratégique Paprec
+                            Guide Stratégique Nudge
                         </div>
                         <h1 className="text-5xl md:text-9xl font-serif font-black tracking-tighter text-black mb-4 leading-none">
                             Nudge
@@ -60,7 +60,7 @@ export default function NudgeGuideHome() {
                         </p>
                         <div className="bg-white border-l-8 border-black p-6 shadow-lg mb-8 transform rotate-1">
                             <p className="text-black font-medium leading-relaxed">
-                                <span className="font-black uppercase">Mission :</span> Transformer l'audit théorique en plan de bataille concret pour empêcher les bouteilles de protoxyde d'exploser.
+                                <span className="font-black uppercase">Mission :</span> Transformer la théorie en plan de bataille concret pour concevoir des environnements qui améliorent les décisions.
                             </p>
                         </div>
                         <div className="flex gap-4">
@@ -86,7 +86,7 @@ export default function NudgeGuideHome() {
                 <div className="flex items-end justify-between mb-12">
                     <div>
                         <h2 className="text-4xl font-serif font-black text-black">Les Chapitres</h2>
-                        <p className="text-black font-bold mt-2 text-lg">Sélectionnés pour le projet Protoxyde.</p>
+                        <p className="text-black font-bold mt-2 text-lg">Les concepts clés pour comprendre l'architecture du choix.</p>
                     </div>
                     <div className="hidden md:block h-1 flex-1 bg-black ml-8 mb-4"></div>
                 </div>
@@ -167,7 +167,7 @@ export default function NudgeGuideHome() {
                 <div className="max-w-4xl mx-auto text-center">
                     <Target className="mx-auto mb-6 text-white" size={64} />
                     <h2 className="text-4xl md:text-5xl font-serif font-black mb-8 leading-tight">
-                        L'Objectif Final :<br />Zéro Explosion
+                        L'Objectif Final :<br />Meilleure Architecture
                     </h2>
                     <p className="text-xl text-white leading-relaxed max-w-2xl mx-auto mb-12 font-medium">
                         "Si vous voulez encourager les gens à faire quelque chose, rendez la chose facile."

@@ -87,7 +87,7 @@ export default function Chapter2() {
                 <Section
                     title="Le Planificateur vs L'Exécutant"
                     icon={BrainCircuit}
-                    auditQuestion="Vous concevez pour le Planificateur (l'utilisateur sobre qui veut recycler). Mais c'est l'Exécutant (l'utilisateur high, pressé) qui tient la bouteille. L'Exécutant gagnera toujours."
+                    auditQuestion="Vous concevez pour le Planificateur (l'utilisateur calme qui veut bien faire). Mais c'est l'Exécutant (l'utilisateur pressé) qui tient le déchet. L'Exécutant gagnera toujours."
                 >
                     <p className="mb-4">
                         Nos préférences changent. Samedi matin : "Je vais faire du sport". Samedi 16h : "Je regarde le foot".
@@ -108,7 +108,7 @@ export default function Chapter2() {
                 <Section
                     title="États Chauds & Froids"
                     icon={Flame}
-                    auditQuestion="L'utilisateur est en 'État Chaud' (high). Les risques futurs sont invisibles. Votre nudge doit fonctionner DANS l'état chaud."
+                    auditQuestion="L'utilisateur est en 'État Chaud' (pressé/énervé/tenté). Les risques futurs sont invisibles. Votre nudge doit fonctionner DANS l'état chaud."
                 >
                     <div className="flex gap-4 items-center mb-6">
                         <div className="flex-1 text-center p-3 bg-blue-100 rounded border-2 border-black text-black">
@@ -119,7 +119,7 @@ export default function Chapter2() {
                         <div className="flex-1 text-center p-3 bg-red-100 rounded border-2 border-black text-black">
                             <Flame className="mx-auto mb-2 text-[#D93025]" size={24} />
                             <strong className="font-black text-[#D93025]">CHAUD</strong>
-                            <div className="text-xs font-bold mt-1">Excité / High</div>
+                            <div className="text-xs font-bold mt-1">Excité</div>
                         </div>
                     </div>
                     <p className="mb-4 font-bold">
@@ -158,29 +158,29 @@ export default function Chapter2() {
                 <Section
                     title="Comptabilité Mentale"
                     icon={PiggyBank}
-                    auditQuestion="La bouteille vide est-elle un 'Déchet' (valeur 0) ou de l''Argent' (consigne) ? Si c'est de l'argent ('House Money'), on le protège."
+                    auditQuestion="L'objet jetable est-il un 'Déchet' (valeur 0) ou de l''Argent' (consigne) ? Si c'est de l'argent ('House Money'), on le protège."
                 >
                     <p className="mb-4">
                         L'argent est fongible, mais pas dans nos têtes. On a des "bocaux mentaux".
                     </p>
                     <p className="bg-[#FFD500] p-2 rounded text-black border border-black font-bold text-center">
-                        Transformez la bouteille de Passif en Actif.
+                        Transformez l'objet de Passif en Actif.
                     </p>
                 </Section>
 
                 <Section
-                    title="Audit Final Paprec"
+                    title="Audit Final"
                     icon={ShieldAlert}
-                    auditQuestion="Le danger est abstrait. Le coût du retour est concret. Vous devez rendre le coût du NON-retour immédiat et concret."
+                    auditQuestion="Le danger est souvent abstrait. Vous devez rendre le coût de l'inaction immédiat et concret."
                 >
                     <div className="space-y-4">
                         <div className="p-4 bg-white border-2 border-black rounded shadow-sm">
                             <h4 className="font-black text-[#D93025]">1. Gérer l'État Chaud</h4>
-                            <p className="text-sm font-medium">Le point de collecte doit être sur le chemin du retour de soirée. Zéro déviation.</p>
+                            <p className="text-sm font-medium">Le système doit être accessible immédiatement, sans friction. Zéro déviation.</p>
                         </div>
                         <div className="p-4 bg-white border-2 border-black rounded shadow-sm">
                             <h4 className="font-black text-[#D93025]">2. Changer le Compte Mental</h4>
-                            <p className="text-sm font-medium">Bouteille = Ticket de loterie / Bon d'achat.</p>
+                            <p className="text-sm font-medium">Déchet = Ticket de loterie / Bon d'achat.</p>
                         </div>
                     </div>
                 </Section>
