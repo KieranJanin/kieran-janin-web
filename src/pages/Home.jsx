@@ -69,10 +69,36 @@ const Home = () => {
     return (
         <div className="relative min-h-screen bg-[#0a0a0a] text-zinc-100 selection:bg-white selection:text-black font-sans selection:bg-zinc-700">
             <SEO
-                title="Integrated Engineering Practitioner"
-                description="Kieran Janin: Integrated Engineering Practitioner specializing in Data-Driven Design and Civil Engineering Innovation."
-                keywords="Kieran Janin, Integrated Engineering Practitioner, Data-Driven Design"
+                title="Civil Engineering, Data Science & Design"
+                description="Kieran Janin is an Integrated Engineering Practitioner specializing in Civil Engineering, Data Science, and Human-Centered Design."
+                keywords="Civil Engineering, Data Science, Human-Centered Design, Structural Health Monitoring, Integrated Engineering"
             />
+
+            {/* Structured Data for SEO */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    "name": "Kieran Janin",
+                    "url": "https://kieranjanin.com",
+                    "sameAs": [
+                        "https://github.com",
+                        "https://linkedin.com"
+                    ],
+                    "jobTitle": "Integrated Engineering Practitioner",
+                    "worksFor": {
+                        "@type": "Organization",
+                        "name": "d.school Paris"
+                    },
+                    "knowsAbout": [
+                        "Civil Engineering",
+                        "Data Science",
+                        "Human-Centered Design",
+                        "Structural Health Monitoring",
+                        "Rapid Prototyping"
+                    ]
+                })}
+            </script>
 
             {/* Background Bridge Image */}
             <div className="absolute top-0 left-0 w-full h-[80vh] overflow-hidden pointer-events-none z-0">

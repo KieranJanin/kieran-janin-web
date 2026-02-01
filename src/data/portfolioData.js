@@ -152,9 +152,49 @@ export const eras = [
     }
 ];
 
+export const featuredProjects = [
+    {
+        title: "Design Fiction Facilitator",
+        desc: "Interactive workshop tool for generating and exploring future scenarios.",
+        tech: ["React", "Vite", "Tailwind"],
+        link: "https://github.com",
+        demo: "https://design-fiction.kieranjanin.com",
+        domain: "Design",
+        type: "Web App"
+    },
+    {
+        title: "Project Alpha",
+        desc: "A full-stack application leveraging AI for structural defect detection.",
+        tech: ["React", "Python", "TensorFlow"],
+        link: "https://github.com",
+        demo: "#",
+        domain: "Data",
+        type: "Full Stack"
+    },
+    {
+        title: "Urban Flow Sim",
+        desc: "Agent-based simulation of pedestrian traffic in transit hubs.",
+        tech: ["Unity", "C#", "Data Analysis"],
+        link: "https://github.com",
+        demo: "#",
+        domain: "Civil",
+        type: "Simulation"
+    },
+    {
+        title: "Kieran Janin Web",
+        desc: "The portfolio site you are looking at right now. Built with Vite and React.",
+        tech: ["React", "Tailwind", "Vite"],
+        link: "https://github.com",
+        demo: "#",
+        domain: "Other",
+        type: "Web App"
+    }
+];
+
 export const getAllProjects = () => {
     // Flatten projects from eras
-    return eras.flatMap(era => era.projects);
+    const archiveProjects = eras.flatMap(era => era.projects);
+    return [...featuredProjects, ...archiveProjects];
 };
 
 export const getProjectsByDomain = (domain) => {
