@@ -1,31 +1,44 @@
 import React, { useState } from 'react';
 import { NavLink, Outlet } from 'react-router-dom';
 import SEO from '../../../components/SEO';
-import { BookOpen, ChevronLeft, Menu, X } from 'lucide-react';
+import {
+    BookOpen,
+    ChevronLeft,
+    Menu,
+    X,
+    Brain,
+    Flame,
+    Users,
+    AlertTriangle,
+    Map,
+    LayoutDashboard
+} from 'lucide-react';
 
 const NudgeLayout = () => {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
     const chapters = [
-        { path: ".", title: "Introduction", label: "Guide Home" },
-        { path: "chapter-1", title: "Chapter 1: Biases and Blunders", label: "Chapter 1" },
-        { path: "chapter-2", title: "Chapter 2: Resisting Temptation", label: "Chapter 2" },
-        { path: "chapter-3", title: "Chapter 3: Following the Herd", label: "Chapter 3" },
-        { path: "chapter-4", title: "Chapter 4: When do we need a Nudge?", label: "Chapter 4" },
-        { path: "chapter-5", title: "Chapter 5: Choice Architecture", label: "Chapter 5" },
+        { path: ".", title: "Introduction", label: "Guide Home", icon: LayoutDashboard },
+        { path: "chapter-1", title: "Chapter 1: Biases and Blunders", label: "Chapter 1", icon: Brain },
+        { path: "chapter-2", title: "Chapter 2: Resisting Temptation", label: "Chapter 2", icon: Flame },
+        { path: "chapter-3", title: "Chapter 3: Following the Herd", label: "Chapter 3", icon: Users },
+        { path: "chapter-4", title: "Chapter 4: When do we need a Nudge?", label: "Chapter 4", icon: AlertTriangle },
+        { path: "chapter-5", title: "Chapter 5: Choice Architecture", label: "Chapter 5", icon: Map },
     ];
 
     return (
-        <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 flex flex-col md:flex-row relative">
+        <div className="min-h-screen bg-[#0a0a0a] text-zinc-100 flex flex-col md:flex-row relative font-sans">
             <SEO
                 title="Nudge: A Book Guide"
                 description="Detailed notes and chapter summaries for Nudge by Thaler & Sunstein."
             />
 
             {/* Mobile Header */}
-            <div className="md:hidden sticky top-0 z-40 bg-[#0a0a0a] border-b border-white/5 p-4 flex items-center justify-between">
-                <div className="flex items-center gap-2 font-bold">
-                    <BookOpen className="w-5 h-5 text-emerald-500" />
+            <div className="md:hidden sticky top-0 z-40 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5 p-4 flex items-center justify-between">
+                <div className="flex items-center gap-2 font-black uppercase tracking-tight text-white">
+                    <div className="bg-white text-black p-1 rounded">
+                        <BookOpen size={16} />
+                    </div>
                     <span>Nudge Guide</span>
                 </div>
                 <button
@@ -54,11 +67,11 @@ const NudgeLayout = () => {
                         <ChevronLeft className="w-4 h-4" /> Back to Library
                     </NavLink>
 
-                    <h2 className="text-xl font-bold mb-6 flex items-center gap-2 hidden md:flex">
-                        <BookOpen className="w-5 h-5 text-emerald-500" /> Nudge
+                    <h2 className="text-xl font-black mb-6 flex items-center gap-2 hidden md:flex text-white">
+                        <BookOpen className="w-5 h-5 text-[#FFD500]" /> Nudge
                     </h2>
 
-                    <nav className="flex flex-col gap-1">
+                    <nav className="flex flex-col gap-2">
                         {chapters.map((chapter) => (
                             <NavLink
                                 key={chapter.path}
@@ -66,24 +79,45 @@ const NudgeLayout = () => {
                                 end={chapter.path === "."}
                                 onClick={() => setIsSidebarOpen(false)}
                                 className={({ isActive }) => `
-                                    px-4 py-3 text-sm font-medium rounded-lg transition-all
+                                    px-4 py-3 text-sm font-medium rounded-xl transition-all flex items-center gap-3
                                     ${isActive
-                                        ? 'bg-zinc-800 text-white border border-white/5'
-                                        : 'text-zinc-400 hover:bg-zinc-900 hover:text-zinc-200'
+                                        ? 'bg-zinc-800 text-white shadow-lg shadow-black/20 border border-white/5'
+                                        : 'text-zinc-500 hover:bg-zinc-900 hover:text-zinc-200'
                                     }
                                 `}
                             >
-                                <div className="font-bold">{chapter.label}</div>
-                                <div className="text-xs font-normal opacity-70 truncate">{chapter.title}</div>
+                                {({ isActive }) => (
+                                    <>
+                                        <chapter.icon size={18} className={isActive ? "text-[#FFD500]" : "text-zinc-600"} />
+                                        <div>
+                                            <div className="font-bold leading-none">{chapter.label}</div>
+                                            <div className={`text-[10px] uppercase tracking-wide mt-1 ${isActive ? "text-zinc-400" : "text-zinc-600"}`}>
+                                                {chapter.title.includes(': ') ? chapter.title.split(': ')[1] : chapter.title}
+                                            </div>
+                                        </div>
+                                    </>
+                                )}
                             </NavLink>
                         ))}
                     </nav>
+
+                    {/* Project Context Box */}
+                    <div className="mt-8 p-4 bg-zinc-900/50 rounded-2xl border border-white/5">
+                        <h3 className="text-[10px] font-black uppercase tracking-widest text-zinc-500 mb-2">Contexte Projet</h3>
+                        <p className="text-xs text-zinc-400 font-medium leading-relaxed">
+                            Architecture du choix pour améliorer les décisions.
+                        </p>
+                    </div>
                 </div>
             </aside>
 
             {/* Main Content Area */}
-            <main className="flex-grow p-0 md:p-12 lg:p-16 w-full">
-                <div className="max-w-4xl mx-auto">
+            <main className="flex-grow w-full relative">
+                <div className="relative z-10 w-full">
+                    {/* 
+                        We remove padding here to allow the child pages to handle their own layout 
+                        (e.g., full width sections). The child pages already have their own max-w wrappers.
+                     */}
                     <Outlet />
                 </div>
             </main>

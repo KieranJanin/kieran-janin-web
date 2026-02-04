@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import { books } from '../data/booksData';
 import { BookOpen, ShoppingCart, ChevronLeft, ChevronRight, Filter } from 'lucide-react';
@@ -177,12 +178,12 @@ const Books = () => {
 
                             <div className="flex gap-4 pt-4">
                                 {selectedBook.guideLink && (
-                                    <a
-                                        href={selectedBook.guideLink}
+                                    <Link
+                                        to={selectedBook.guideLink}
                                         className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-black bg-white px-6 py-3 rounded-lg hover:bg-zinc-200 transition-colors shadow-[0_0_15px_theme('colors.white')/20]"
                                     >
                                         <BookOpen className="w-4 h-4" /> Read Guide
-                                    </a>
+                                    </Link>
                                 )}
                                 {selectedBook.link && (
                                     <a

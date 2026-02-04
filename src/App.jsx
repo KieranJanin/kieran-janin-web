@@ -1,3 +1,11 @@
+// Thinking In Systems Imports
+import ThinkingInSystemsLayout from './pages/book-guides/thinking-in-systems/ThinkingInSystemsLayout';
+import ThinkingInSystemsHome from './pages/book-guides/thinking-in-systems/ThinkingInSystem_HomePage';
+import ThinkingChapter1 from './pages/book-guides/thinking-in-systems/ThinkingInSystems_Chapter1';
+import ThinkingChapter2 from './pages/book-guides/thinking-in-systems/ThinkingInSystems_Chapter2';
+import ThinkingChapter5 from './pages/book-guides/thinking-in-systems/ThinkingInSystems_Chapter5';
+import ThinkingChapter6 from './pages/book-guides/thinking-in-systems/ThinkingInSystems_Chapter6';
+
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
@@ -14,6 +22,8 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Books from './pages/Books';
 import NotFound from './pages/NotFound';
+import ComingSoon from './pages/ComingSoon';
+import StagingAuth from './components/StagingAuth';
 
 // Nudge Guide Imports
 import NudgeLayout from './pages/book-guides/nudge/NudgeLayout';
@@ -23,11 +33,6 @@ import Chapter2 from './pages/book-guides/nudge/Chapter2';
 import Chapter3 from './pages/book-guides/nudge/Chapter3';
 import Chapter4 from './pages/book-guides/nudge/Chapter4';
 import Chapter5 from './pages/book-guides/nudge/Chapter5';
-
-import ComingSoon from './pages/ComingSoon';
-
-import StagingAuth from './components/StagingAuth';
-
 
 function App() {
   // Check Mode: 'live' (Full Site) or 'coming_soon' (Placeholder)
@@ -69,6 +74,15 @@ function App() {
                   <Route path="chapter-5" element={<Chapter5 />} />
                 </Route>
 
+                {/* Thinking In Systems Book Guide Routes */}
+                <Route path="books/thinking-in-systems" element={<ThinkingInSystemsLayout />}>
+                  <Route index element={<ThinkingInSystemsHome />} />
+                  <Route path="chapter-1" element={<ThinkingChapter1 />} />
+                  <Route path="chapter-2" element={<ThinkingChapter2 />} />
+                  <Route path="chapter-5" element={<ThinkingChapter5 />} />
+                  <Route path="chapter-6" element={<ThinkingChapter6 />} />
+                </Route>
+
                 <Route path="about" element={<About />} />
                 <Route path="contact" element={<Contact />} />
 
@@ -88,8 +102,6 @@ function App() {
               <Route path="*" element={<NotFound />} />
             </>
           )}
-
-
 
         </Routes>
       </BrowserRouter>
