@@ -145,28 +145,36 @@ export const eras = [
         ],
         projects: [
             {
-                title: "Civil Systems Optimization",
-                type: "Systems Science",
-                desc: "Leveraged data science and optimization to manage complex urban systems.",
-                details: "Developed stochastic models for smart city infrastructure resilience. Used Gurobi to optimize resource allocation during simulated emergency events, demonstrating a 20% potential improvement in response times.",
-                tech: ["Python (NumPy/Pandas)", "Gurobi/CVX", "GIS"],
+                title: "Graduate Student Instructor (E7)",
+                type: "Teaching",
+                desc: "Introduction to computer programming for scientists and engineers (Matlab).",
+                details: "Taught fundamental programming concepts to undergraduate engineering students. Led lab sessions, graded assignments, and held office hours to support student learning in MATLAB.",
+                tech: ["MATLAB", "Pedagogy"],
                 domain: "Data"
             },
             {
-                title: "Seismic Resilience Simulation",
-                type: "Civil + Design",
-                desc: "Researching the impact of bio-inspired structural forms on seismic energy dissipation.",
-                details: "Modeled non-linear structural behavior of lattice geometries under seismic loading. Explored how biomimetic designs could offer superior weight-to-performance ratios for earthquake-prone regions.",
-                tech: ["SAP2000", "Generative Design"],
+                title: "NCAA® March Madness Analytics",
+                type: "Competition",
+                desc: "Winner of Kaggle x Google Cloud & NCAA® March Madness Analytics Competition.",
+                details: "Developed a predictive model for the NCAA Men's Basketball Tournament using machine learning on Google Cloud. Outperformed thousands of competitors to win the analytics prize.",
+                tech: ["Google Cloud", "Python", "ML"],
+                domain: "Data"
+            },
+            {
+                title: "Sustainable Delivery Choices",
+                type: "Research",
+                desc: "Influence of carbon footprint awareness on online delivery time choices (Amazon EchoDot).",
+                details: "Designed and conducted a behavioral experiment to measure how information about carbon footprints affects consumer delivery choices. Analyzed results to propose UI interventions for sustainable e-commerce.",
+                tech: ["Behavioral Sci", "Data Analysis"],
+                domain: "Design"
+            },
+            {
+                title: "NZ Energy Market Aggregation",
+                type: "Research",
+                desc: "Flexibility Resource Aggregation for Endogenous Local Marginal Prices on the New Zealand market.",
+                details: "Investigated optimization strategies for aggregating distributed energy resources (DERs) in the NZ electricity market. Modeled the impact on local marginal prices and grid stability.",
+                tech: ["Optimization", "Energy Systems"],
                 domain: "Civil"
-            },
-            {
-                title: "Urban Informatics Lab",
-                type: "Data Science",
-                desc: "Analyzing large-scale mobility datasets to propose human-centric urban design interventions.",
-                details: "Processed GPS trajectories from 10,000+ vehicles to map congestion patterns. Correlated mobility data with air quality indices to identify pollution hotspots.",
-                tech: ["R", "Spatial Statistics", "QGIS"],
-                domain: "Data"
             }
         ]
     },
