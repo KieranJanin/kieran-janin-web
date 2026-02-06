@@ -18,6 +18,8 @@ import BridgeDark from '../assets/bridge_centered-dark.png';
 import { useTheme } from '../context/ThemeContext';
 import ThemeToggle from '../components/ThemeToggle';
 
+import { featuredProjects } from '../data/portfolioData';
+
 const Home = () => {
     const { theme } = useTheme();
 
@@ -45,27 +47,6 @@ const Home = () => {
             icon: <Lightbulb className="w-6 h-6" />,
             color: "hover:text-amber-600 dark:hover:text-amber-400",
             border: "hover:border-amber-500/50"
-        }
-    ];
-
-    const portfolio = [
-        {
-            title: "Structural Health Monitoring",
-            category: "Data + Civil",
-            description: "Implemented real-time sensor arrays and predictive maintenance algorithms for aging bridge infrastructure.",
-            tags: ["Python", "IoT", "FEA"]
-        },
-        {
-            title: "Urban Flow Optimization",
-            category: "Design + Data",
-            description: "Redesigning pedestrian transit hubs using human-centric simulation data and iterative prototype testing.",
-            tags: ["Simulation", "UX Research", "GIS"]
-        },
-        {
-            title: "Parametric Bridge Design",
-            category: "Civil + Design",
-            description: "Algorithmic generation of structural forms to minimize material waste while maximizing aesthetic impact.",
-            tags: ["Grasshopper", "Optimization", "BIM"]
         }
     ];
 
@@ -106,15 +87,19 @@ const Home = () => {
 
 
             {/* Background Bridge Image */}
-            <div className="absolute top-0 left-0 w-full h-[80vh] overflow-hidden pointer-events-none z-0">
-                <div className={`absolute inset-0 z-10 bg-gradient-to-b ${theme === 'light'
+            <div className="absolute top-0 left-0 w-full h-screen overflow-hidden pointer-events-none z-0">
+                <div className={`absolute inset-0 z-20 bg-gradient-to-b ${theme === 'light'
                     ? 'from-blue-50/20 via-gray-50/60 to-gray-50'
                     : 'from-[#0a0a0a]/30 via-[#0a0a0a]/80 to-[#0a0a0a]'
                     }`} />
                 <img
                     src={theme === 'light' ? BridgeLight : BridgeDark}
                     alt="Background Bridge"
-                    className="w-full h-full object-cover opacity-80 transition-opacity duration-500"
+                    className="w-full h-full object-cover opacity-100 transition-opacity duration-500"
+                    style={{
+                        maskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 100%)',
+                        WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 100%)'
+                    }}
                 />
             </div>
 
@@ -200,18 +185,23 @@ const Home = () => {
                         </div>
 
                         <div className="space-y-4">
-                            {portfolio.map((work, index) => (
+                            {featuredProjects.map((work, index) => (
                                 <div key={index} className="group flex flex-col md:flex-row md:items-center gap-6 p-8 rounded-2xl bg-white dark:bg-transparent border border-zinc-200 dark:border-white/5 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition-all duration-300 hover:shadow-sm dark:hover:shadow-none">
                                     <div className="flex-1">
                                         <div className="flex items-center gap-3 mb-2">
                                             <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded-md">
-                                                {work.category}
+                                                {work.type}
                                             </span>
+                                            {work.company && (
+                                                <span className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
+                                                    @ {work.company}
+                                                </span>
+                                            )}
                                         </div>
                                         <h3 className="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">{work.title}</h3>
-                                        <p className="text-zinc-600 dark:text-zinc-500 text-sm leading-relaxed mb-4">{work.description}</p>
+                                        <p className="text-zinc-600 dark:text-zinc-500 text-sm leading-relaxed mb-4">{work.desc}</p>
                                         <div className="flex gap-4">
-                                            {work.tags.map(tag => (
+                                            {work.tech.map(tag => (
                                                 <span key={tag} className="text-[10px] font-medium text-zinc-500 dark:text-zinc-600">#{tag}</span>
                                             ))}
                                         </div>
@@ -241,8 +231,8 @@ const Home = () => {
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 text-zinc-400 hover:text-black dark:hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 text-zinc-400 hover:text-black dark:hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+                            <a href="https://github.com/KieranJanin" target="_blank" rel="noopener noreferrer" className="p-2 text-zinc-400 hover:text-black dark:hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
+                            <a href="https://www.linkedin.com/in/kieranjanin/" target="_blank" rel="noopener noreferrer" className="p-2 text-zinc-400 hover:text-black dark:hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
                             <Link to="/contact" className="p-2 text-zinc-400 hover:text-black dark:hover:text-white transition-colors"><Mail className="w-5 h-5" /></Link>
                         </div>
                     </section>

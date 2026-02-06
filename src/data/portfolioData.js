@@ -264,24 +264,34 @@ export const eras = [
 
 export const featuredProjects = [
     {
-        title: "Design Fiction Facilitator",
-        desc: "Interactive workshop tool for generating and exploring future scenarios.",
-        tech: ["React", "Vite", "Tailwind"],
-        link: "https://github.com",
-        demo: "https://design-fiction.kieranjanin.com",
+        title: "L'Oréal Brandstorm 2026",
+        desc: "Strategic proposal for L'Oréal's future product ecosystem.",
+        tech: ["Strategy", "Concept Development", "Pitching"],
+        link: "#",
+        demo: "#",
         domain: "Design",
-        type: "Web App",
+        type: "Innovation Strategy",
         company: "d.school Paris"
     },
     {
-        title: "Kieran Janin Web",
-        desc: "The portfolio site you are looking at right now. Built with Vite and React.",
-        tech: ["React", "Tailwind", "Vite"],
-        link: "https://github.com",
+        title: "Connected Launching Girder",
+        desc: "Real-time cycle analysis and dashboarding for the launching girder operations.",
+        tech: ["IoT", "PowerBI", "Real-time Data"],
+        link: "#",
         demo: "#",
-        domain: "Other",
-        type: "Web App",
-        company: "Personal Project"
+        domain: "Civil",
+        type: "IoT + Dashboarding",
+        company: "Bouygues Travaux Publics"
+    },
+    {
+        title: "NCAA® March Madness Analytics",
+        desc: "Winner of Kaggle x Google Cloud & NCAA® March Madness Analytics Competition.",
+        tech: ["Google Cloud", "Python", "ML"],
+        link: "#",
+        demo: "#",
+        domain: "Data",
+        type: "Competition",
+        company: "UC Berkeley"
     }
 ];
 
