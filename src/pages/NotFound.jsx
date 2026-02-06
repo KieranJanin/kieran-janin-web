@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
-import BridgeImage from '../assets/bridge_centered.png';
+import BridgeImage from '../assets/bridge_centered-dark.png';
 import { ChevronLeft } from 'lucide-react';
 
 const NotFound = () => {
