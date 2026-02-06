@@ -24,7 +24,7 @@ const Layout = () => {
         { path: '/data-science', label: 'Data' },
         { path: '/design-thinking', label: 'Design' },
         { path: '/projects', label: 'Projects' },
-        { path: '/books', label: 'Books' },
+        { path: '/blog', label: 'Blog' },
         { path: '/blog', label: 'Blog' },
         { path: '/archive', label: 'Archive' },
         { path: '/about', label: 'About' },

@@ -63,9 +63,9 @@ function App() {
                   <Route path="blog" element={<Blog />} />
                   <Route path="blog/:slug" element={<BlogPost />} />
                   <Route path="projects" element={<Projects />} />
-                  <Route path="books" element={<Books />} />
+                  {/* <Route path="books" element={<Books />} /> */}
 
-                  {/* Nudge Book Guide Routes */}
+                  {/* Nudge Book Guide Routes - HIDDEN
                   <Route path="books/nudge" element={<NudgeLayout />}>
                     <Route index element={<NudgeGuideHome />} />
                     <Route path="chapter-1" element={<Chapter1 />} />
@@ -74,8 +74,9 @@ function App() {
                     <Route path="chapter-4" element={<Chapter4 />} />
                     <Route path="chapter-5" element={<Chapter5 />} />
                   </Route>
+                  */}
 
-                  {/* Thinking In Systems Book Guide Routes */}
+                  {/* Thinking In Systems Book Guide Routes - HIDDEN
                   <Route path="books/thinking-in-systems" element={<ThinkingInSystemsLayout />}>
                     <Route index element={<ThinkingInSystemsHome />} />
                     <Route path="chapter-1" element={<ThinkingChapter1 />} />
@@ -83,6 +84,7 @@ function App() {
                     <Route path="chapter-5" element={<ThinkingChapter5 />} />
                     <Route path="chapter-6" element={<ThinkingChapter6 />} />
                   </Route>
+                  */}
 
                   <Route path="about" element={<About />} />
                   <Route path="contact" element={<Contact />} />
