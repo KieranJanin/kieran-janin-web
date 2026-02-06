@@ -50,7 +50,7 @@ function App() {
               These are completely hidden when VITE_APP_MODE is not 'live'.
             */}
             {appMode === 'live' && (
-              <Route element={<StagingAuth />}>
+              <>
                 {/* Secret Access to Home in Coming Soon Mode (only if specifically enabled or in live mode) */}
                 <Route path="/hidden-home" element={<Home />} />
 
@@ -92,7 +92,7 @@ function App() {
                   {/* 404 for valid layout paths that don't match */}
                   <Route path="*" element={<NotFound />} />
                 </Route>
-              </Route>
+              </>
             )}
 
             {/* 
