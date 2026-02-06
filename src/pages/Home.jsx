@@ -18,10 +18,11 @@ import BridgeDark from '../assets/bridge_centered-dark.png';
 import { useTheme } from '../context/ThemeContext';
 import ThemeToggle from '../components/ThemeToggle';
 
-import { featuredProjects } from '../data/portfolioData';
+import { getFeaturedProjects } from '../data/portfolioData';
 
 const Home = () => {
     const { theme } = useTheme();
+    const featuredProjects = getFeaturedProjects();
 
     const domains = [
         {
@@ -186,7 +187,13 @@ const Home = () => {
 
                         <div className="space-y-4">
                             {featuredProjects.map((work, index) => (
-                                <div key={index} className="group flex flex-col md:flex-row md:items-center gap-6 p-8 rounded-2xl bg-white dark:bg-transparent border border-zinc-200 dark:border-white/5 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition-all duration-300 hover:shadow-sm dark:hover:shadow-none">
+                                <a
+                                    key={index}
+                                    href={work.link || "#"}
+                                    target={work.link && work.link !== "#" ? "_blank" : "_self"}
+                                    rel={work.link && work.link !== "#" ? "noopener noreferrer" : ""}
+                                    className="block group flex flex-col md:flex-row md:items-center gap-6 p-8 rounded-2xl bg-white dark:bg-transparent border border-zinc-200 dark:border-white/5 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition-all duration-300 hover:shadow-sm dark:hover:shadow-none cursor-pointer"
+                                >
                                     <div className="flex-1">
                                         <div className="flex items-center gap-3 mb-2">
                                             <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded-md">
@@ -211,7 +218,7 @@ const Home = () => {
                                             <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" />
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             ))}
                         </div>
                     </section>

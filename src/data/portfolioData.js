@@ -36,7 +36,9 @@ export const eras = [
                 desc: "Strategic proposal for L'Oréal's future product ecosystem.",
                 details: "Developed a forward-looking innovation concept for L'Oréal. Created a pitch deck and visual assets demonstrating a new product-service system aligned with 2026 consumer behavior predictions.",
                 tech: ["Strategy", "Concept Development", "Pitching"],
-                domain: "Design"
+                domain: "Design",
+                is_featured: true,
+                link: "https://brandstorm.loreal.com/en"
             }
         ]
     },
@@ -68,7 +70,9 @@ export const eras = [
                 desc: "Real-time cycle analysis and dashboarding for the launching girder operations.",
                 details: "Integrated sensor data from the launching girder into a real-time dashboard. Visualized critical path activities and cycle times to support the site team in achieving performance targets.",
                 tech: ["IoT", "PowerBI", "Real-time Data"],
-                domain: "Civil"
+                domain: "Civil",
+                is_featured: true,
+                link: "https://www.newcivilengineer.com/latest/closer-look-at-700t-bridge-building-machine-behind-hs2s-colne-valley-viaduct-07-06-2022/"
             },
             {
                 title: "HKCKR | Connected Gantry Logistic Cycle Analysis",
@@ -158,7 +162,9 @@ export const eras = [
                 desc: "Winner of Kaggle x Google Cloud & NCAA® March Madness Analytics Competition.",
                 details: "Developed a predictive model for the NCAA Men's Basketball Tournament using machine learning on Google Cloud. Outperformed thousands of competitors to win the analytics prize.",
                 tech: ["Google Cloud", "Python", "ML"],
-                domain: "Data"
+                domain: "Data",
+                is_featured: true,
+                link: "https://funginstitute.medium.com/meng-team-wins-the-kaggle-x-google-cloud-ncaa-march-madness-analytics-competition-554b4beb1ce8"
             },
             {
                 title: "Sustainable Delivery Choices",
@@ -262,48 +268,18 @@ export const eras = [
     }
 ];
 
-export const featuredProjects = [
-    {
-        title: "L'Oréal Brandstorm 2026",
-        desc: "Strategic proposal for L'Oréal's future product ecosystem.",
-        tech: ["Strategy", "Concept Development", "Pitching"],
-        link: "#",
-        demo: "#",
-        domain: "Design",
-        type: "Innovation Strategy",
-        company: "d.school Paris"
-    },
-    {
-        title: "Connected Launching Girder",
-        desc: "Real-time cycle analysis and dashboarding for the launching girder operations.",
-        tech: ["IoT", "PowerBI", "Real-time Data"],
-        link: "#",
-        demo: "#",
-        domain: "Civil",
-        type: "IoT + Dashboarding",
-        company: "Bouygues Travaux Publics"
-    },
-    {
-        title: "NCAA® March Madness Analytics",
-        desc: "Winner of Kaggle x Google Cloud & NCAA® March Madness Analytics Competition.",
-        tech: ["Google Cloud", "Python", "ML"],
-        link: "#",
-        demo: "#",
-        domain: "Data",
-        type: "Competition",
-        company: "UC Berkeley"
-    }
-];
-
 export const getAllProjects = () => {
     // Flatten projects from eras and inject company name
-    const archiveProjects = eras.flatMap(era =>
+    return eras.flatMap(era =>
         era.projects.map(project => ({
             ...project,
             company: era.company
         }))
     );
-    return [...featuredProjects, ...archiveProjects];
+};
+
+export const getFeaturedProjects = () => {
+    return getAllProjects().filter(project => project.is_featured);
 };
 
 export const getProjectsByDomain = (domain) => {
