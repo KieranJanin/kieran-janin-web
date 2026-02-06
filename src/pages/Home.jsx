@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import {
@@ -11,22 +11,18 @@ import {
     Mail,
     ExternalLink,
     BookOpen,
-    Menu,
-    X,
-    Cpu,
     Briefcase
 } from 'lucide-react';
-import BridgeImage from '../assets/bridge_centered.png';
+import BridgeLight from '../assets/bridge_centered-light.png';
+import BridgeDark from '../assets/bridge_centered-dark.png';
+import { useTheme } from '../context/ThemeContext';
+import ThemeToggle from '../components/ThemeToggle';
+
+import { getFeaturedProjects } from '../data/portfolioData';
 
 const Home = () => {
-    const [scrolled, setScrolled] = useState(false);
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-
-    useEffect(() => {
-        const handleScroll = () => setScrolled(window.scrollY > 20);
-        window.addEventListener('scroll', handleScroll);
-        return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    const { theme } = useTheme();
+    const featuredProjects = getFeaturedProjects();
 
     const domains = [
         {
@@ -34,7 +30,7 @@ const Home = () => {
             path: "/civil-engineering",
             description: "Resilient physical infrastructure and structural integrity.",
             icon: <HardHat className="w-6 h-6" />,
-            color: "hover:text-blue-400",
+            color: "hover:text-blue-600 dark:hover:text-blue-400",
             border: "hover:border-blue-500/50"
         },
         {
@@ -42,7 +38,7 @@ const Home = () => {
             path: "/data-science",
             description: "Predictive modeling and systems analysis for complex insights.",
             icon: <Database className="w-6 h-6" />,
-            color: "hover:text-emerald-400",
+            color: "hover:text-emerald-600 dark:hover:text-emerald-400",
             border: "hover:border-emerald-500/50"
         },
         {
@@ -50,107 +46,77 @@ const Home = () => {
             path: "/design-thinking",
             description: "Human-centric frameworks for iterative problem solving.",
             icon: <Lightbulb className="w-6 h-6" />,
-            color: "hover:text-amber-400",
+            color: "hover:text-amber-600 dark:hover:text-amber-400",
             border: "hover:border-amber-500/50"
         }
     ];
 
-    const portfolio = [
-        {
-            title: "Structural Health Monitoring",
-            category: "Data + Civil",
-            description: "Implemented real-time sensor arrays and predictive maintenance algorithms for aging bridge infrastructure.",
-            tags: ["Python", "IoT", "FEA"]
-        },
-        {
-            title: "Urban Flow Optimization",
-            category: "Design + Data",
-            description: "Redesigning pedestrian transit hubs using human-centric simulation data and iterative prototype testing.",
-            tags: ["Simulation", "UX Research", "GIS"]
-        },
-        {
-            title: "Parametric Bridge Design",
-            category: "Civil + Design",
-            description: "Algorithmic generation of structural forms to minimize material waste while maximizing aesthetic impact.",
-            tags: ["Grasshopper", "Optimization", "BIM"]
-        }
-    ];
-
     return (
-        <div className="relative min-h-screen bg-[#0a0a0a] text-zinc-100 selection:bg-white selection:text-black font-sans selection:bg-zinc-700">
+        <div className="relative min-h-screen bg-gray-50 dark:bg-[#0a0a0a] text-zinc-900 dark:text-zinc-100 selection:bg-zinc-900 selection:text-white dark:selection:bg-white dark:selection:text-black font-sans transition-colors duration-300">
             <SEO
-                title="Integrated Engineering Practitioner"
-                description="Kieran Janin: Integrated Engineering Practitioner specializing in Data-Driven Design and Civil Engineering Innovation."
-                keywords="Kieran Janin, Integrated Engineering Practitioner, Data-Driven Design"
+                title="Civil Engineering, Data Science & Design"
+                description="Kieran Janin is an Integrated Engineering Practitioner specializing in Civil Engineering, Data Science, and Human-Centered Design."
+                keywords="Civil Engineering, Data Science, Human-Centered Design, Structural Health Monitoring, Integrated Engineering"
             />
 
+            {/* Structured Data for SEO */}
+            <script type="application/ld+json">
+                {JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "Person",
+                    "name": "Kieran Janin",
+                    "url": "https://kieranjanin.com",
+                    "sameAs": [
+                        "https://github.com",
+                        "https://linkedin.com"
+                    ],
+                    "jobTitle": "Integrated Engineering Practitioner",
+                    "worksFor": {
+                        "@type": "Organization",
+                        "name": "d.school Paris"
+                    },
+                    "knowsAbout": [
+                        "Civil Engineering",
+                        "Data Science",
+                        "Human-Centered Design",
+                        "Structural Health Monitoring",
+                        "Rapid Prototyping"
+                    ]
+                })}
+            </script>
+
+
+
             {/* Background Bridge Image */}
-            <div className="absolute top-0 left-0 w-full h-[80vh] overflow-hidden pointer-events-none z-0">
-                <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a0a]/30 via-[#0a0a0a]/80 to-[#0a0a0a] z-10" />
+            <div className="absolute top-0 left-0 w-full h-screen overflow-hidden pointer-events-none z-0">
+                <div className={`absolute inset-0 z-20 bg-gradient-to-b ${theme === 'light'
+                    ? 'from-blue-50/20 via-gray-50/60 to-gray-50'
+                    : 'from-[#0a0a0a]/30 via-[#0a0a0a]/80 to-[#0a0a0a]'
+                    }`} />
                 <img
-                    src={BridgeImage}
+                    src={theme === 'light' ? BridgeLight : BridgeDark}
                     alt="Background Bridge"
-                    className="w-full h-full object-cover opacity-80"
+                    className="w-full h-full object-cover opacity-100 transition-opacity duration-500"
+                    style={{
+                        maskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 100%)',
+                        WebkitMaskImage: 'radial-gradient(circle at 50% 50%, black 0%, transparent 100%)'
+                    }}
                 />
             </div>
-
-            {/* Navigation - keeping local nav for specific styling, but linking internally */}
-            {/* Navigation - keeping local nav for specific styling, but linking internally */}
-            <nav className={`fixed top-0 w-full z-50 transition-all duration-300 px-6 py-4 ${scrolled || isMenuOpen ? 'bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5' : 'bg-transparent'}`}>
-                <div className="max-w-6xl mx-auto flex justify-between items-center">
-                    <span className="font-bold tracking-tighter text-xl z-50 relative">KJ.</span>
-
-                    {/* Desktop Nav */}
-                    <nav className="hidden md:flex gap-6 text-sm font-medium text-zinc-400">
-                        <Link to="/civil-engineering" className="hover:text-white transition-colors">Civil</Link>
-                        <Link to="/data-science" className="hover:text-white transition-colors">Data</Link>
-                        <Link to="/design-thinking" className="hover:text-white transition-colors">Design</Link>
-                        <Link to="/projects" className="hover:text-white transition-colors">Projects</Link>
-                        <Link to="/books" className="hover:text-white transition-colors">Books</Link>
-                        <Link to="/blog" className="hover:text-white transition-colors">Blog</Link>
-                        <Link to="/archive" className="hover:text-white transition-colors">Archive</Link>
-                        <Link to="/about" className="hover:text-white transition-colors">About</Link>
-                        <Link to="/contact" className="hover:text-white transition-colors">Contact</Link>
-                    </nav>
-
-                    {/* Mobile Menu Button */}
-                    <button
-                        className="md:hidden text-zinc-100 z-50 relative p-2"
-                        onClick={() => setIsMenuOpen(!isMenuOpen)}
-                    >
-                        {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
-                </div>
-
-                {/* Mobile Menu Overlay */}
-                <div className={`fixed inset-0 bg-black z-[100] flex flex-col items-center justify-center transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'}`}>
-                    <nav className="flex flex-col gap-8 text-center">
-                        <Link to="/civil-engineering" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Civil</Link>
-                        <Link to="/data-science" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Data</Link>
-                        <Link to="/design-thinking" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Design</Link>
-                        <Link to="/projects" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Projects</Link>
-                        <Link to="/books" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Books</Link>
-                        <Link to="/blog" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Blog</Link>
-                        <Link to="/archive" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Archive</Link>
-                        <Link to="/about" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">About</Link>
-                        <Link to="/contact" className="text-2xl font-bold tracking-tight text-zinc-400 hover:text-white transition-colors">Contact</Link>
-                    </nav>
-                </div>
-            </nav>
 
             <main className="relative z-10 pt-32 pb-20 px-6">
                 <div className="w-full max-w-7xl md:w-[90%] lg:w-[80%] mx-auto">
 
                     {/* Hero Section */}
                     <section className="mb-32">
-                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 leading-tight">
+                        <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-8 leading-tight text-zinc-900 dark:text-white">
                             I build resilient infrastructure, analyze the data that powers it, and design the experiences that make it useful.
                         </h1>
-                        <p className="text-zinc-500 text-lg md:text-xl max-w-2xl leading-relaxed">
+                        <p className="text-zinc-600 dark:text-zinc-500 text-lg md:text-xl max-w-2xl leading-relaxed">
                             Kieran Janin — An integrated practitioner working at the intersection of
-                            <span className="text-white"> Physical Systems</span>,
-                            <span className="text-white"> Digital Intelligence</span>, and
-                            <span className="text-white"> Human Design</span>.
+                            <span className="text-black dark:text-white font-medium"> Physical Systems</span>,
+                            <span className="text-black dark:text-white font-medium"> Digital Intelligence</span>, and
+                            <span className="text-black dark:text-white font-medium"> Human Design</span>.
                         </p>
                     </section>
 
@@ -160,22 +126,24 @@ const Home = () => {
                             <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
                             <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">Latest Deployment</h2>
                         </div>
-                        <div className="group relative bg-zinc-900/50 border border-white/5 rounded-2xl p-8 transition-all hover:bg-zinc-900 hover:border-white/10">
+                        <div className="group relative bg-white dark:bg-zinc-900/50 border border-zinc-200 dark:border-white/5 rounded-2xl p-8 transition-all hover:bg-zinc-50 dark:hover:bg-zinc-900 hover:border-zinc-300 dark:hover:border-white/10 shadow-sm dark:shadow-none">
                             <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
                                 <div>
-                                    <h3 className="text-2xl font-bold mb-2 flex items-center gap-2">
-                                        Project Alpha <Cpu className="w-5 h-5 text-zinc-400" />
+                                    <h3 className="text-2xl font-bold mb-2 flex items-center gap-2 text-zinc-900 dark:text-white">
+                                        Design Fiction Facilitator <Lightbulb className="w-5 h-5 text-zinc-400" />
                                     </h3>
-                                    <p className="text-zinc-400 max-w-md">
-                                        The application I just deployed. It solves X by leveraging Y, built during a single-night sprint.
+                                    <p className="text-zinc-600 dark:text-zinc-400 max-w-md">
+                                        A digital companion for facilitating design fiction workshops, helping teams generate and explore future scenarios.
                                     </p>
                                 </div>
-                                <Link
-                                    to="/projects"
-                                    className="inline-flex items-center justify-center gap-2 bg-white text-black px-6 py-3 rounded-full font-bold text-sm hover:bg-zinc-200 transition-all active:scale-95"
+                                <a
+                                    href="https://design-fiction.kieranjanin.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="inline-flex items-center justify-center gap-2 bg-zinc-900 text-white dark:bg-white dark:text-black px-6 py-3 rounded-full font-bold text-sm hover:bg-zinc-700 dark:hover:bg-zinc-200 transition-all active:scale-95 shadow-md dark:shadow-none"
                                 >
-                                    View Live App <ExternalLink className="w-4 h-4" />
-                                </Link>
+                                    Launch Tool <ExternalLink className="w-4 h-4" />
+                                </a>
                             </div>
                         </div>
                     </section>
@@ -190,16 +158,16 @@ const Home = () => {
                                 <Link
                                     key={item.path}
                                     to={item.path}
-                                    className={`group p-8 rounded-2xl bg-zinc-900/30 border border-white/5 transition-all duration-300 ${item.border} flex flex-col h-full`}
+                                    className={`group p-8 rounded-2xl bg-white dark:bg-zinc-900/30 border border-zinc-200 dark:border-white/5 transition-all duration-300 ${item.border} flex flex-col h-full hover:shadow-md dark:hover:shadow-none`}
                                 >
                                     <div className={`mb-6 text-zinc-400 transition-colors ${item.color}`}>
                                         {item.icon}
                                     </div>
-                                    <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                                    <p className="text-zinc-500 text-sm leading-relaxed mb-8 flex-grow">
+                                    <h3 className="text-xl font-bold mb-3 text-zinc-900 dark:text-white">{item.title}</h3>
+                                    <p className="text-zinc-600 dark:text-zinc-500 text-sm leading-relaxed mb-8 flex-grow">
                                         {item.description}
                                     </p>
-                                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-600 group-hover:text-white transition-colors">
+                                    <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-zinc-500 dark:text-zinc-600 group-hover:text-black dark:group-hover:text-white transition-colors">
                                         Visit Pillar <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
                                     </div>
                                 </Link>
@@ -214,63 +182,71 @@ const Home = () => {
                                 <Briefcase className="w-4 h-4 text-zinc-500" />
                                 <h2 className="text-xs font-bold uppercase tracking-[0.2em] text-zinc-500">Selected Works</h2>
                             </div>
-                            <Link to="/projects" className="text-xs font-bold text-zinc-500 hover:text-white transition-colors underline underline-offset-4 decoration-zinc-800 hover:decoration-white">View Full Archive</Link>
+                            <Link to="/projects" className="text-xs font-bold text-zinc-500 hover:text-black dark:hover:text-white transition-colors underline underline-offset-4 decoration-zinc-300 dark:decoration-zinc-800 hover:decoration-black dark:hover:decoration-white">View Full Archive</Link>
                         </div>
 
                         <div className="space-y-4">
-                            {portfolio.map((work, index) => (
-                                <div key={index} className="group flex flex-col md:flex-row md:items-center gap-6 p-8 rounded-2xl border border-white/5 hover:bg-zinc-900/40 transition-all duration-300">
+                            {featuredProjects.map((work, index) => (
+                                <a
+                                    key={index}
+                                    href={work.link || "#"}
+                                    target={work.link && work.link !== "#" ? "_blank" : "_self"}
+                                    rel={work.link && work.link !== "#" ? "noopener noreferrer" : ""}
+                                    className="block group flex flex-col md:flex-row md:items-center gap-6 p-8 rounded-2xl bg-white dark:bg-transparent border border-zinc-200 dark:border-white/5 hover:bg-zinc-50 dark:hover:bg-zinc-900/40 transition-all duration-300 hover:shadow-sm dark:hover:shadow-none cursor-pointer"
+                                >
                                     <div className="flex-1">
                                         <div className="flex items-center gap-3 mb-2">
-                                            <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-zinc-800 text-zinc-400 rounded-md">
-                                                {work.category}
+                                            <span className="text-[10px] font-bold uppercase tracking-widest px-2 py-1 bg-zinc-100 dark:bg-zinc-800 text-zinc-600 dark:text-zinc-400 rounded-md">
+                                                {work.type}
                                             </span>
+                                            {work.company && (
+                                                <span className="text-[10px] uppercase tracking-widest text-zinc-400 dark:text-zinc-600">
+                                                    @ {work.company}
+                                                </span>
+                                            )}
                                         </div>
-                                        <h3 className="text-xl font-bold mb-2 group-hover:text-white transition-colors">{work.title}</h3>
-                                        <p className="text-zinc-500 text-sm leading-relaxed mb-4">{work.description}</p>
+                                        <h3 className="text-xl font-bold mb-2 text-zinc-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">{work.title}</h3>
+                                        <p className="text-zinc-600 dark:text-zinc-500 text-sm leading-relaxed mb-4">{work.desc}</p>
                                         <div className="flex gap-4">
-                                            {work.tags.map(tag => (
-                                                <span key={tag} className="text-[10px] font-medium text-zinc-600">#{tag}</span>
+                                            {work.tech.map(tag => (
+                                                <span key={tag} className="text-[10px] font-medium text-zinc-500 dark:text-zinc-600">#{tag}</span>
                                             ))}
                                         </div>
                                     </div>
                                     <div className="hidden md:block">
-                                        <div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all">
+                                        <div className="w-12 h-12 rounded-full border border-zinc-200 dark:border-white/10 flex items-center justify-center group-hover:bg-zinc-900 group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-all">
                                             <ArrowRight className="w-5 h-5 -rotate-45 group-hover:rotate-0 transition-transform" />
                                         </div>
                                     </div>
-                                </div>
+                                </a>
                             ))}
                         </div>
                     </section>
 
                     {/* Secondary Links / Blog */}
-                    <section className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                    <section className="border-t border-zinc-200 dark:border-white/5 pt-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
                         <div className="flex gap-8">
                             <Link to="/blog" className="group flex items-center gap-3">
-                                <div className="p-3 rounded-full bg-zinc-900 group-hover:bg-zinc-800 transition-colors">
-                                    <BookOpen className="w-5 h-5" />
+                                <div className="p-3 rounded-full bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 group-hover:border-zinc-300 dark:group-hover:bg-zinc-800 transition-colors">
+                                    <BookOpen className="w-5 h-5 text-zinc-700 dark:text-zinc-400 group-hover:text-black dark:group-hover:text-zinc-200" />
                                 </div>
                                 <div>
-                                    <p className="text-sm font-bold">The Blog</p>
+                                    <p className="text-sm font-bold text-zinc-900 dark:text-zinc-200">The Blog</p>
                                     <p className="text-xs text-zinc-500">Thoughts on the built world.</p>
                                 </div>
                             </Link>
                         </div>
 
                         <div className="flex items-center gap-4">
-                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 text-zinc-500 hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="p-2 text-zinc-500 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
-                            <Link to="/contact" className="p-2 text-zinc-500 hover:text-white transition-colors"><Mail className="w-5 h-5" /></Link>
+                            <a href="https://github.com/KieranJanin" target="_blank" rel="noopener noreferrer" className="p-2 text-zinc-400 hover:text-black dark:hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
+                            <a href="https://www.linkedin.com/in/kieranjanin/" target="_blank" rel="noopener noreferrer" className="p-2 text-zinc-400 hover:text-black dark:hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+                            <Link to="/contact" className="p-2 text-zinc-400 hover:text-black dark:hover:text-white transition-colors"><Mail className="w-5 h-5" /></Link>
                         </div>
                     </section>
 
                 </div>
             </main>
 
-            <footer className="px-6 py-12 text-center text-zinc-600 text-xs tracking-widest uppercase">
-                © {new Date().getFullYear()} Kieran Janin. Integrated Engineering Practitioner.
-            </footer>
         </div>
     );
 };

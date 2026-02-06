@@ -4,7 +4,7 @@ steps:
     args: 
       - 'build'
       - '--build-arg'
-      - 'VITE_APP_MODE=coming_soon'
+      - 'VITE_APP_MODE=live'
       - '-t'
       - 'gcr.io/$PROJECT_ID/kieran-janin-web:$COMMIT_SHA'
       - '.'

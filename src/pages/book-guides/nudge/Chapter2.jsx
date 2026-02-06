@@ -28,7 +28,7 @@ const Section = ({ title, icon: Icon, children, auditQuestion }) => {
 
             {isOpen && (
                 <div className="bg-white border-x-4 border-b-4 border-black rounded-b-xl p-8 -mt-2 pt-6 shadow-xl animate-in fade-in slide-in-from-top-2 mx-2">
-                    <div className="prose max-w-none text-black font-medium text-lg leading-relaxed mb-8">
+                    <div className="prose max-w-none text-black font-medium text-sm md:text-lg leading-relaxed mb-8">
                         {children}
                     </div>
 
@@ -60,10 +60,10 @@ export default function Chapter2() {
                 <div className="inline-block border-2 border-black px-4 py-1 rounded-full mb-6 bg-white">
                     <h3 className="text-black text-sm font-black tracking-widest uppercase">CHAPITRE 2</h3>
                 </div>
-                <h1 className="text-6xl md:text-8xl font-serif font-black tracking-tighter text-black mb-4 leading-none">
+                <h1 className="text-4xl md:text-8xl font-serif font-black tracking-tighter text-black mb-4 leading-none">
                     Résister à<br />la Tentation
                 </h1>
-                <p className="mt-6 text-xl font-bold text-black max-w-2xl mx-auto leading-relaxed border-b-4 border-black pb-8">
+                <p className="mt-6 text-base md:text-xl font-bold text-black max-w-2xl mx-auto leading-relaxed border-b-4 border-black pb-8">
                     Le conflit éternel entre ce que nous voulons faire (Planificateur) et ce que nous faisons vraiment (Exécutant).
                 </p>
             </header>
@@ -72,8 +72,8 @@ export default function Chapter2() {
 
                 {/* Intro Card */}
                 <div className="bg-white p-8 rounded-xl border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] mb-12">
-                    <h3 className="text-2xl font-black text-black mb-2">Les Noix de Cajou de Thaler</h3>
-                    <p className="text-lg text-black mb-6">
+                    <h3 className="text-xl md:text-2xl font-black text-black mb-2">Les Noix de Cajou de Thaler</h3>
+                    <p className="text-sm md:text-lg text-black mb-6">
                         Thaler sert des noix. Les invités mangent tout. Thaler retire le bol. Les invités le <em>remercient</em>.
                     </p>
                     <div className="bg-black text-white p-4 rounded-lg transform -rotate-1">
@@ -87,7 +87,7 @@ export default function Chapter2() {
                 <Section
                     title="Le Planificateur vs L'Exécutant"
                     icon={BrainCircuit}
-                    auditQuestion="Vous concevez pour le Planificateur (l'utilisateur sobre qui veut recycler). Mais c'est l'Exécutant (l'utilisateur high, pressé) qui tient la bouteille. L'Exécutant gagnera toujours."
+                    auditQuestion="Vous concevez pour le Planificateur (l'utilisateur calme qui veut bien faire). Mais c'est l'Exécutant (l'utilisateur pressé) qui tient le déchet. L'Exécutant gagnera toujours."
                 >
                     <p className="mb-4">
                         Nos préférences changent. Samedi matin : "Je vais faire du sport". Samedi 16h : "Je regarde le foot".
@@ -108,7 +108,7 @@ export default function Chapter2() {
                 <Section
                     title="États Chauds & Froids"
                     icon={Flame}
-                    auditQuestion="L'utilisateur est en 'État Chaud' (high). Les risques futurs sont invisibles. Votre nudge doit fonctionner DANS l'état chaud."
+                    auditQuestion="L'utilisateur est en 'État Chaud' (pressé/énervé/tenté). Les risques futurs sont invisibles. Votre nudge doit fonctionner DANS l'état chaud."
                 >
                     <div className="flex gap-4 items-center mb-6">
                         <div className="flex-1 text-center p-3 bg-blue-100 rounded border-2 border-black text-black">
@@ -119,7 +119,7 @@ export default function Chapter2() {
                         <div className="flex-1 text-center p-3 bg-red-100 rounded border-2 border-black text-black">
                             <Flame className="mx-auto mb-2 text-[#D93025]" size={24} />
                             <strong className="font-black text-[#D93025]">CHAUD</strong>
-                            <div className="text-xs font-bold mt-1">Excité / High</div>
+                            <div className="text-xs font-bold mt-1">Excité</div>
                         </div>
                     </div>
                     <p className="mb-4 font-bold">
@@ -158,29 +158,29 @@ export default function Chapter2() {
                 <Section
                     title="Comptabilité Mentale"
                     icon={PiggyBank}
-                    auditQuestion="La bouteille vide est-elle un 'Déchet' (valeur 0) ou de l''Argent' (consigne) ? Si c'est de l'argent ('House Money'), on le protège."
+                    auditQuestion="L'objet jetable est-il un 'Déchet' (valeur 0) ou de l''Argent' (consigne) ? Si c'est de l'argent ('House Money'), on le protège."
                 >
                     <p className="mb-4">
                         L'argent est fongible, mais pas dans nos têtes. On a des "bocaux mentaux".
                     </p>
                     <p className="bg-[#FFD500] p-2 rounded text-black border border-black font-bold text-center">
-                        Transformez la bouteille de Passif en Actif.
+                        Transformez l'objet de Passif en Actif.
                     </p>
                 </Section>
 
                 <Section
-                    title="Audit Final Paprec"
+                    title="Audit Final"
                     icon={ShieldAlert}
-                    auditQuestion="Le danger est abstrait. Le coût du retour est concret. Vous devez rendre le coût du NON-retour immédiat et concret."
+                    auditQuestion="Le danger est souvent abstrait. Vous devez rendre le coût de l'inaction immédiat et concret."
                 >
                     <div className="space-y-4">
                         <div className="p-4 bg-white border-2 border-black rounded shadow-sm">
                             <h4 className="font-black text-[#D93025]">1. Gérer l'État Chaud</h4>
-                            <p className="text-sm font-medium">Le point de collecte doit être sur le chemin du retour de soirée. Zéro déviation.</p>
+                            <p className="text-sm font-medium">Le système doit être accessible immédiatement, sans friction. Zéro déviation.</p>
                         </div>
                         <div className="p-4 bg-white border-2 border-black rounded shadow-sm">
                             <h4 className="font-black text-[#D93025]">2. Changer le Compte Mental</h4>
-                            <p className="text-sm font-medium">Bouteille = Ticket de loterie / Bon d'achat.</p>
+                            <p className="text-sm font-medium">Déchet = Ticket de loterie / Bon d'achat.</p>
                         </div>
                     </div>
                 </Section>

@@ -1,6 +1,6 @@
 import React from 'react';
 import SEO from '../components/SEO';
-import BridgeImage from '../assets/bridge_centered.png';
+import BridgeImage from '../assets/bridge_centered-dark.png';
 import { Linkedin, Mail } from 'lucide-react';
 
 const ComingSoon = () => {

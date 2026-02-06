@@ -42,6 +42,7 @@ export const books = [
         review: "An essential primer on systems dynamics. It provides the reset button for how we perceive complex problems, moving from linear to circular causality.",
         tags: ["Systems Thinking", "Sustainability", "Complexity"],
         cover: "/book-covers/thinking-in-systems.jpg",
-        link: "https://www.amazon.com/Thinking-Systems-Donella-H-Meadows/dp/1603580557"
+        link: "https://www.amazon.com/Thinking-Systems-Donella-H-Meadows/dp/1603580557",
+        guideLink: "/books/thinking-in-systems"
     }
 ];
